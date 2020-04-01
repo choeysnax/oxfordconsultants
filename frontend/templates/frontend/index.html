@@ -1,0 +1,154 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% block page_title %}
+    Welcome
+{% endblock %}
+{% block extra_head %}
+    <style>
+        .bgimg {
+            background-image: url('{% static 'images/girls.png'%}');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bgoverlay {
+            background: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <v-carousel hide-delimiters  :show-arrows="false" cycle height="700">
+        {% for banner in banners %}
+            <v-carousel-item>
+                <div style='background-image: url("{{ banner.src }}");background-position: center;background-size: 2000px;height: 100%;width: 100%;'>
+                    <div class="bgoverlay w3-display-container" style="height: 100%;width: 100%;">
+                        <div class="w3-display-middle w3-text-white" style="width: 80%;margin: auto">
+                            <h1 class="w3-jumbo w3-hide-small">Seamless corporate governance solutions</h1>
+                            <h1 class="w3-xxlarge w3-hide-medium w3-hide-large">Seamless corporate governance solutions</h1>
+                            <p class="w3-xxlarge w3-hide-small">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cumque, delectus
+                                possimus provident quasi reiciendis similique tempore voluptatibus?
+                            </p>
+                            <p class="w3-xlarge w3-hide-medium w3-hide-large">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cumque, delectus
+                                possimus provident quasi reiciendis similique tempore voluptatibus?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </v-carousel-item>
+        {% endfor %}
+    </v-carousel>
+    {#    <section class="hero is-link is-medium bgimg">#}
+    {#        <div class="hero-body bgoverlay">#}
+    {#            <div class="container">#}
+    {#                <div class="w3-content">#}
+    {#                    #}
+    {##}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </section>#}
+    <section class="hero is-small is-black w3-padding-48">
+        <div class="hero-body container">
+            <div class="columns is-mobile is-multiline">
+                <div class="column is-12">
+                    <h1 class="w3-xxlarge">Services</h1>
+                    <p class="w3-large" style="max-width: 800px">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores atque commodi
+                        consequatur
+                        quam
+                        quod repellat soluta tempora veritatis?
+                    </p>
+
+                </div>
+                {% for foo in 'abcdec' %}
+                    <div class="column is-4-desktop is-4-tablet is-12-mobile">
+                        <v-card flat max-width="374">
+                            {#                            <v-img height="200"#}
+                            {#                                   src="https://media-public.canva.com/MADaq3lLYF0/1/thumbnail_large-1.jpg"></v-img>#}
+                            <div class="w3-padding-small">
+                                <v-card-text>
+
+                                    <v-chip-group
+                                            active-class="deep-purple accent-4 white--text">
+                                        <v-chip>Technology</v-chip>
+                                    </v-chip-group>
+                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Doing Business in Ghana</h1>
+                                    <p class="is-marginless">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis
+                                        ea
+                                        eaque facere hic in nemo optio provident soluta tempora. Excepturi labore nisi
+                                        pariatur praesentium quod. Alias nisi quod sunt.
+                                    </p>
+                                </v-card-text>
+
+                                <v-card-actions>
+                                    <v-btn color="deep-purple lighten-2"
+                                           text>
+                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
+                                    </v-btn>
+                                </v-card-actions>
+
+                            </div>
+                        </v-card>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="hero is-small w3-light-grey w3-padding-48">
+        <div class="hero-body container">
+            <div class="columns is-mobile is-multiline">
+                <div class="column is-12">
+                    <h1 class="w3-xxlarge">Insights</h1>
+                    <p class="w3-large" style="max-width: 800px">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores atque commodi
+                        consequatur
+                        quam
+                        quod repellat soluta tempora veritatis?
+                    </p>
+
+                </div>
+                {% for foo in 'abc' %}
+                    <div class="column is-4-desktop is-4-tablet is-12-mobile">
+                        <v-card shaped max-width="374">
+                            <v-img height="200"
+                                   src="https://media-public.canva.com/MADaq3lLYF0/1/thumbnail_large-1.jpg"></v-img>
+                            <div class="w3-padding-small">
+                                <v-card-text>
+
+                                    <v-chip-group
+                                            active-class="deep-purple accent-4 white--text">
+                                        <v-chip>Technology</v-chip>
+                                    </v-chip-group>
+                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Doing Business in Ghana</h1>
+                                    <p class="is-marginless">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis
+                                        ea
+                                        eaque facere hic in nemo optio provident soluta tempora. Excepturi labore nisi
+                                        pariatur praesentium quod. Alias nisi quod sunt.
+                                    </p>
+                                </v-card-text>
+
+                                <v-card-actions>
+                                    <v-btn color="deep-purple lighten-2"
+                                           text>
+                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
+                                    </v-btn>
+                                </v-card-actions>
+
+                            </div>
+                        </v-card>
+                    </div>
+                {% endfor %}
+                <div class="column is-12 w3-center">
+                    <v-btn x-large rounded outlined>
+                        See all insights&nbsp;<i class="fas fa-angle-right"></i>
+
+                    </v-btn>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
