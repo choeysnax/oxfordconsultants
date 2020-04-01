@@ -46,14 +46,17 @@
 <body class="w3-light-grey">
 <div id="app">
     <v-app>
-        <nav class="navbar w3-padding w3-border-bottom w3-border-top" role="navigation"
+        {#        <v-container>#}
+
+        <nav class="navbar w3-padding-large w3-border-bottom w3-border-top" role="navigation"
              aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
                     Oxford Consultants
                 </a>
-
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+{#@click.stop="drawer = !drawer"#}
+                <a  role="button" class="navbar-burger burger" aria-label="menu"
+                   aria-expanded="false"
                    data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -93,7 +96,7 @@
 
             </div>
         </nav>
-{#        <div style="min-height: 100vh">#}
+        {#        <div style="min-height: 100vh">#}
         <div>
             {% block content %}
 
@@ -105,7 +108,8 @@
                     Stay in the Know with Our Newsletter
                 </h1>
                 <p class="fit-content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consectetur ducimus eaque earum illo
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consectetur ducimus eaque earum
+                    illo
                     iure laboriosam minus natus nulla perferendis quia repellat soluta ullam, voluptas voluptate
                     voluptatem voluptatum? Officia, vero!
                 </p>
@@ -175,9 +179,11 @@
                 <div class="level-left">
                     <div class="level-item"><a href="" class="w3-text-white w3-border-bottom">Privacy Statement</a>
                     </div>
-                    <div class="level-item"><a href="" class="w3-text-white w3-border-bottom">Terms and Conditions</a>
+                    <div class="level-item"><a href="" class="w3-text-white w3-border-bottom">Terms and
+                        Conditions</a>
                     </div>
-                    <div class="level-item"><a href="" class="w3-text-white w3-border-bottom">Cookie Policy</a></div>
+                    <div class="level-item"><a href="" class="w3-text-white w3-border-bottom">Cookie Policy</a>
+                    </div>
                     <div class="level-item"><a href="" class="w3-text-white w3-border-bottom">Sitemap</a></div>
                 </div>
                 <div class="level-right w3-center">
@@ -186,6 +192,31 @@
                 </div>
             </div>
         </footer>
+        {#        </v-container>#}
+
+        <v-navigation-drawer right v-model="drawer" absolute temporary>
+            <v-list nav dense>
+                <v-list-item-group
+                        v-model="group"
+                        active-class="deep-purple--text text--accent-4">
+                    <v-list-item>
+                        <v-list-item-title>Foo</v-list-item-title>
+                    </v-list-item>
+
+                    <v-list-item>
+                        <v-list-item-title>Bar</v-list-item-title>
+                    </v-list-item>
+
+                    <v-list-item>
+                        <v-list-item-title>Fizz</v-list-item-title>
+                    </v-list-item>
+
+                    <v-list-item>
+                        <v-list-item-title>Buzz</v-list-item-title>
+                    </v-list-item>
+                </v-list-item-group>
+            </v-list>
+        </v-navigation-drawer>
     </v-app>
 
 </div>
@@ -205,6 +236,7 @@
         delimiters: ['[[', ']]'],
         data() {
             return {
+                drawer: false,
                 items: [
                     {
                         src: '{% static 'images/banner-image-1.jpg' %}',

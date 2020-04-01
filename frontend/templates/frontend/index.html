@@ -65,15 +65,8 @@
                 {% for foo in 'abcdec' %}
                     <div class="column is-4-desktop is-4-tablet is-12-mobile">
                         <v-card flat max-width="374">
-                            {#                            <v-img height="200"#}
-                            {#                                   src="https://media-public.canva.com/MADaq3lLYF0/1/thumbnail_large-1.jpg"></v-img>#}
                             <div class="w3-padding-small">
                                 <v-card-text>
-
-                                    <v-chip-group
-                                            active-class="deep-purple accent-4 white--text">
-                                        <v-chip>Technology</v-chip>
-                                    </v-chip-group>
                                     <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Doing Business in Ghana</h1>
                                     <p class="is-marginless">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis
@@ -112,12 +105,13 @@
                 </div>
                 {% for foo in 'abc' %}
                     <div class="column is-4-desktop is-4-tablet is-12-mobile">
-                        <v-card shaped max-width="374">
-                            <v-img height="200"
-                                   src="https://media-public.canva.com/MADaq3lLYF0/1/thumbnail_large-1.jpg"></v-img>
+                        <v-card flat shaped max-width="374">
+
+                            <img style="max-height:350px"
+
+                                   src="https://media-public.canva.com/MADaq3lLYF0/1/thumbnail_large-1.jpg">
                             <div class="w3-padding-small">
                                 <v-card-text>
-
                                     <v-chip-group
                                             active-class="deep-purple accent-4 white--text">
                                         <v-chip>Technology</v-chip>
