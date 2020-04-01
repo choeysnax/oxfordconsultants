@@ -1,0 +1,12 @@
+.fit-content {
+    max-width: fit-content;
+    margin: auto;
+}
+
+.navbar-item {
+    text-transform: uppercase;
+}
+
+.trans-400 {
+    transition: 400ms;
+}
