@@ -24,14 +24,26 @@
                     <div class="bgoverlay w3-display-container" style="height: 100%;width: 100%;">
                         <div class="w3-display-middle w3-text-white" style="width: 80%;margin: auto">
                             <div class="w3-center">
-                                <img src="{% static 'images/svg/oc-white-red.svg' %}" alt="" style="height: 50px">
-                                <h1 class="w3-jumbo w3-hide-small">{{ banner.text }}</h1>
+                                <img src="{% static 'images/svg/oc.svg' %}" alt="" style="height: 50px">
+                                <h1 class="w3-jumbo w3-text-black">
+                                    OXFORD
+                                </h1>
+                                <h1 class="w3-text-black" style="margin-top: -30px;font-size: 35px">
+                                    CONSULTANTS
+                                </h1>
+                                <h1 class="w3-xxlarge w3-hide-small w3-margin-bottom">
+                                    {{ banner.text }}
+                                    <br>
+                                </h1>
                                 <h6 class="w3-xlarge w3-hide-small w3-content">
                                     We're a young, dynamic, bi-lingual, progressive company.
                                     It is our culture and philosophy to work closely with our clients to understand all
                                     their business needs.
                                 </h6>
-                                <h1 class="w3-xxlarge w3-hide-medium w3-hide-large">{{ banner.text }}</h1>
+                                <h1 class="w3-xlarge w3-hide-medium w3-hide-large w3-margin-bottom">
+                                    {{ banner.text }}
+                                    <br>
+                                </h1>
                                 <h6 class="w3-large w3-hide-medium w3-hide-large">
                                     We're a young, dynamic, bi-lingual, progressive company.
                                     It is our culture and philosophy to work closely with our clients to understand all
@@ -65,10 +77,6 @@
                             translation
                             services (French and English), and human resources services.
                         </p>
-                        <br>
-                        <v-btn x-large rounded outlined class="w3-center">See Our Services</v-btn>
-                        <br>
-                        <br>
                     </div>
                     <div class="media-right w3-hide-small" style="margin: auto">
                         <img src="{% static 'images/oxford_white.png' %}" style="max-width: 300px" alt="">
@@ -78,31 +86,6 @@
                     </div>
 
                 </div>
-                <div class="media is-mobile">
-                    <div class="media-content w3-padding-32">
-                        <p class="w3-xlarge">
-                            We advise companies on issues relating to all phases of their life cycle, from formation, to
-                            on-going
-                            issues such as their tax obligations, to end-of-life matters such as liquidation.
-                        </p>
-                    </div>
-                </div>
-                <div class="media is-mobile">
-                    <div class="media-content w3-padding-32">
-                        <p class="w3-xlarge">
-                            It is our culture and philosophy to work closely with our clients to understand all their
-                            business
-                            needs, and to keep them fully informed of developments in the business, regulatory and other
-                            environments that may affect them. Our major objective is to offer bespoke, innovative,
-                            prompt
-                            and
-                            cost-effective corporate services through the use of the latest technology available and our
-                            networks,
-                            both formally and informally in virtually all sectors of the Ghanaian business world.
-                        </p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
@@ -115,15 +98,11 @@
                 </div>
                 {% for service in services|slice:9 %}
                     <div class="column is-4-desktop is-4-tablet is-12-mobile w3-padding-32">
-                        <v-card class="w3-hide-small" shaped flat max-width="370" min-height="450" outlined>
+                        <v-card shaped flat max-width="370" outlined>
                             <div class="w3-padding-small">
                                 <v-card-text>
                                     {{ service.icon|safe }}
-                                    <br>
                                     <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">{{ service.title }}</h1>
-                                    <p class="is-marginless" style="max-height: 250px;overflow-y: auto">
-                                        {{ service.description }}
-                                    </p>
                                 </v-card-text>
 
                                 <v-card-actions>
@@ -132,26 +111,7 @@
                                         Read more&nbsp;<i class="fas fa-angle-right"></i>
                                     </v-btn>
                                 </v-card-actions>
-
-                            </div>
-                        </v-card>
-                        <v-card class="w3-hide-medium w3-hide-large" shaped flat max-width="370" outlined>
-                            <div class="w3-padding-small">
-                                <v-card-text>
-                                    {{ service.icon|safe }}
-                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">{{ service.title }}</h1>
-                                    <p class="is-marginless">
-                                        {{ service.description }}
-                                    </p>
-                                </v-card-text>
-
-                                <v-card-actions>
-                                    <v-btn color="deep-purple lighten-2"
-                                           text>
-                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
-                                    </v-btn>
-                                </v-card-actions>
-
+                                <br>
                             </div>
                         </v-card>
                     </div>

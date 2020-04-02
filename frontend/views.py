@@ -6,7 +6,7 @@ def index_view(request):
     context = {
         'banners': [
             {
-                'src': '/static/images/banner-image-3.jpg',
+                'src': '/static/images/banner-image-2.jpg',
                 'text': 'Seamless corporate solutions',
                 'cta_text': 'Learn more',
             }
