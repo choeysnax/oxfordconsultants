@@ -17,40 +17,42 @@
     </style>
 {% endblock %}
 {% block content %}
-    <v-carousel class="w3-topbar w3-border-red" hide-delimiters :show-arrows="false" cycle height="700">
+    <v-carousel class="w3-topbar w3-border-red" hide-delimiters :show-arrows="false" cycle height="80vh">
         {% for banner in banners %}
             <v-carousel-item>
                 <div style='background-image: url("{{ banner.src }}");background-position: center;background-size: 2000px;height: 100%;width: 100%;'>
                     <div class="bgoverlay w3-display-container" style="height: 100%;width: 100%;">
                         <div class="w3-display-middle w3-text-white" style="width: 80%;margin: auto">
-                            <h1 class="w3-jumbo w3-hide-small">{{ banner.text }}</h1>
-                            <h1 class="w3-xxlarge w3-hide-medium w3-hide-large">{{ banner.text }}</h1>
-                            <p class="w3-xxlarge w3-hide-small">
-                                We're a young, dynamic, bi-lingual, progressive company.
-                                It is our culture and philosophy to work closely with our clients to understand all
-                                their business needs.
-
-                            </p>
-                            <p class="w3-xlarge w3-hide-medium w3-hide-large">
-                                We're a young, dynamic, bi-lingual, progressive company.
-                                It is our culture and philosophy to work closely with our clients to understand all
-                                their business needs.
-
-                            </p>
-                            <v-btn x-large rounded light>{{ banner.cta_text }}</v-btn>
+                            <div class="w3-center">
+                                <img src="{% static 'images/svg/oc-white-red.svg' %}" alt="" style="height: 50px">
+                                <h1 class="w3-jumbo w3-hide-small">{{ banner.text }}</h1>
+                                <h6 class="w3-xlarge w3-hide-small w3-content">
+                                    We're a young, dynamic, bi-lingual, progressive company.
+                                    It is our culture and philosophy to work closely with our clients to understand all
+                                    their business needs.
+                                </h6>
+                                <h1 class="w3-xxlarge w3-hide-medium w3-hide-large">{{ banner.text }}</h1>
+                                <h6 class="w3-large w3-hide-medium w3-hide-large">
+                                    We're a young, dynamic, bi-lingual, progressive company.
+                                    It is our culture and philosophy to work closely with our clients to understand all
+                                    their business needs.
+                                </h6>
+                                <br>
+                                <v-btn x-large rounded light>{{ banner.cta_text }}</v-btn>
+                            </div>
                         </div>
                     </div>
                 </div>
             </v-carousel-item>
         {% endfor %}
     </v-carousel>
-    <section class="hero is-small w3-padding-48 w3-topbar w3-border-red">
-        <div class="hero-body container">
+    <section class="is-small w3-padding-48 w3-topbar w3-border-red">
+        <div class="w3-padding-large container">
             <h1 class="w3-xxlarge w3-center">Who We Are</h1>
             <br>
             <br>
             <div class="w3-xlarge" style="max-width: 1000px;margin: auto">
-                <div class="media">
+                <div class="media is-mobile">
                     <div class="media-content">
                         <p class="w3-xlarge">
                             Oxford Consultants is a young, dynamic, bi-lingual, progressive company established to offer
@@ -63,9 +65,12 @@
                             translation
                             services (French and English), and human resources services.
                         </p>
+                        <br>
                         <v-btn x-large rounded outlined class="w3-center">See Our Services</v-btn>
+                        <br>
+                        <br>
                     </div>
-                    <div class="media-right" style="margin: auto">
+                    <div class="media-right w3-hide-small" style="margin: auto">
                         <img src="{% static 'images/oxford_white.png' %}" style="max-width: 300px" alt="">
                         <br>
                         <br>
@@ -73,8 +78,7 @@
                     </div>
 
                 </div>
-
-                <div class="media">
+                <div class="media is-mobile">
                     <div class="media-content w3-padding-32">
                         <p class="w3-xlarge">
                             We advise companies on issues relating to all phases of their life cycle, from formation, to
@@ -83,7 +87,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="media">
+                <div class="media is-mobile">
                     <div class="media-content w3-padding-32">
                         <p class="w3-xlarge">
                             It is our culture and philosophy to work closely with our clients to understand all their
@@ -103,7 +107,7 @@
         </div>
     </section>
     <img src="{% static 'images/svg/top.svg' %}" alt="">
-    <section class="hero is-small w3-padding-48 is-black" style="background-color: black">
+    <section class="hero is-small w3-padding-48 is-black" style="background-color: black;">
         <div class="hero-body" style="max-width: 1200px;margin: auto">
             <div class="columns is-mobile is-multiline is-centered">
                 <div class="column is-12">
@@ -111,17 +115,33 @@
                 </div>
                 {% for service in services|slice:9 %}
                     <div class="column is-4-desktop is-4-tablet is-12-mobile w3-padding-32">
-                        <v-card flat max-width="374" outlined>
+                        <v-card class="w3-hide-small" shaped flat max-width="370" min-height="450" outlined>
+                            <div class="w3-padding-small">
+                                <v-card-text>
+                                    {{ service.icon|safe }}
+                                    <br>
+                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">{{ service.title }}</h1>
+                                    <p class="is-marginless" style="max-height: 250px;overflow-y: auto">
+                                        {{ service.description }}
+                                    </p>
+                                </v-card-text>
+
+                                <v-card-actions>
+                                    <v-btn color="deep-purple lighten-2"
+                                           text>
+                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
+                                    </v-btn>
+                                </v-card-actions>
+
+                            </div>
+                        </v-card>
+                        <v-card class="w3-hide-medium w3-hide-large" shaped flat max-width="370" outlined>
                             <div class="w3-padding-small">
                                 <v-card-text>
                                     {{ service.icon|safe }}
                                     <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">{{ service.title }}</h1>
-                                    <p class="is-marginless w3-large">
-                                        {#                                        {{ service.description }}#}
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aspernatur
-                                        consectetur, deleniti enim facere fuga harum in, magni nesciunt non officia
-                                        repellat reprehenderit repudiandae sequi sunt suscipit tempore veritatis
-                                        voluptates!
+                                    <p class="is-marginless">
+                                        {{ service.description }}
                                     </p>
                                 </v-card-text>
 
@@ -147,7 +167,7 @@
 
 
     <img src="{% static 'images/svg/bottom.svg' %}" alt="">
-    <section class="hero is-small w3-padding-48">
+    <section class="hero is-small w3-padding-48" style="">
         <div class="hero-body container">
             <div class="columns is-mobile is-multiline">
                 <div class="column is-12">

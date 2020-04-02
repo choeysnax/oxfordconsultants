@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 
 # Create your views here.
-def index(request):
+def index_view(request):
     context = {
         'banners': [
             {
@@ -118,3 +118,18 @@ def index(request):
         ]
     }
     return render(request, 'frontend/index.html', context)
+
+
+def about_view(request):
+    return render(request, 'frontend/about.html')
+
+
+def contact_view(request):
+    return render(request, 'frontend/contact.html')
+
+
+def services_view(request, slug=None):
+    if slug:
+        return render(request, 'frontend/service.html')
+    else:
+        return render(request, 'frontend/services.html')
