@@ -17,62 +17,111 @@
     </style>
 {% endblock %}
 {% block content %}
-    <v-carousel hide-delimiters  :show-arrows="false" cycle height="700">
+    <v-carousel class="w3-topbar w3-border-red" hide-delimiters :show-arrows="false" cycle height="700">
         {% for banner in banners %}
             <v-carousel-item>
                 <div style='background-image: url("{{ banner.src }}");background-position: center;background-size: 2000px;height: 100%;width: 100%;'>
                     <div class="bgoverlay w3-display-container" style="height: 100%;width: 100%;">
                         <div class="w3-display-middle w3-text-white" style="width: 80%;margin: auto">
-                            <h1 class="w3-jumbo w3-hide-small">Seamless corporate governance solutions</h1>
-                            <h1 class="w3-xxlarge w3-hide-medium w3-hide-large">Seamless corporate governance solutions</h1>
+                            <h1 class="w3-jumbo w3-hide-small">{{ banner.text }}</h1>
+                            <h1 class="w3-xxlarge w3-hide-medium w3-hide-large">{{ banner.text }}</h1>
                             <p class="w3-xxlarge w3-hide-small">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cumque, delectus
-                                possimus provident quasi reiciendis similique tempore voluptatibus?
+                                We're a young, dynamic, bi-lingual, progressive company.
+                                It is our culture and philosophy to work closely with our clients to understand all
+                                their business needs.
+
                             </p>
                             <p class="w3-xlarge w3-hide-medium w3-hide-large">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cumque, delectus
-                                possimus provident quasi reiciendis similique tempore voluptatibus?
+                                We're a young, dynamic, bi-lingual, progressive company.
+                                It is our culture and philosophy to work closely with our clients to understand all
+                                their business needs.
+
                             </p>
+                            <v-btn x-large rounded light>{{ banner.cta_text }}</v-btn>
                         </div>
                     </div>
                 </div>
             </v-carousel-item>
         {% endfor %}
     </v-carousel>
-    {#    <section class="hero is-link is-medium bgimg">#}
-    {#        <div class="hero-body bgoverlay">#}
-    {#            <div class="container">#}
-    {#                <div class="w3-content">#}
-    {#                    #}
-    {##}
-    {#                </div>#}
-    {#            </div>#}
-    {#        </div>#}
-    {#    </section>#}
-    <section class="hero is-small is-black w3-padding-48">
+    <section class="hero is-small w3-padding-48 w3-topbar w3-border-red">
         <div class="hero-body container">
-            <div class="columns is-mobile is-multiline">
-                <div class="column is-12">
-                    <h1 class="w3-xxlarge">Services</h1>
-                    <p class="w3-large" style="max-width: 800px">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores atque commodi
-                        consequatur
-                        quam
-                        quod repellat soluta tempora veritatis?
-                    </p>
+            <h1 class="w3-xxlarge w3-center">Who We Are</h1>
+            <br>
+            <br>
+            <div class="w3-xlarge" style="max-width: 1000px;margin: auto">
+                <div class="media">
+                    <div class="media-content">
+                        <p class="w3-xlarge">
+                            Oxford Consultants is a young, dynamic, bi-lingual, progressive company established to offer
+                            business
+                            support, strategic advisory and consultancy services with a full spectrum of capabilities in
+                            a myriad of
+                            areas of business, namely entities registrations, company secretarial services, corporate
+                            governance,
+                            compliance, immigration, nominee services, liquidation, tax advisory and allied services,
+                            translation
+                            services (French and English), and human resources services.
+                        </p>
+                        <v-btn x-large rounded outlined class="w3-center">See Our Services</v-btn>
+                    </div>
+                    <div class="media-right" style="margin: auto">
+                        <img src="{% static 'images/oxford_white.png' %}" style="max-width: 300px" alt="">
+                        <br>
+                        <br>
+                        <br>
+                    </div>
 
                 </div>
-                {% for foo in 'abcdec' %}
-                    <div class="column is-4-desktop is-4-tablet is-12-mobile">
-                        <v-card flat max-width="374">
+
+                <div class="media">
+                    <div class="media-content w3-padding-32">
+                        <p class="w3-xlarge">
+                            We advise companies on issues relating to all phases of their life cycle, from formation, to
+                            on-going
+                            issues such as their tax obligations, to end-of-life matters such as liquidation.
+                        </p>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-content w3-padding-32">
+                        <p class="w3-xlarge">
+                            It is our culture and philosophy to work closely with our clients to understand all their
+                            business
+                            needs, and to keep them fully informed of developments in the business, regulatory and other
+                            environments that may affect them. Our major objective is to offer bespoke, innovative,
+                            prompt
+                            and
+                            cost-effective corporate services through the use of the latest technology available and our
+                            networks,
+                            both formally and informally in virtually all sectors of the Ghanaian business world.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <img src="{% static 'images/svg/top.svg' %}" alt="">
+    <section class="hero is-small w3-padding-48 is-black" style="background-color: black">
+        <div class="hero-body container">
+            <div class="columns is-mobile is-multiline is-centered">
+                <div class="column is-12">
+                    <h1 class="w3-xxlarge w3-center">Services</h1>
+                </div>
+                {% for service in services|slice:9 %}
+                    <div class="column is-4-desktop is-4-tablet is-12-mobile w3-padding-32">
+                        <v-card flat max-width="374" outlined>
                             <div class="w3-padding-small">
                                 <v-card-text>
-                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Doing Business in Ghana</h1>
-                                    <p class="is-marginless">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis
-                                        ea
-                                        eaque facere hic in nemo optio provident soluta tempora. Excepturi labore nisi
-                                        pariatur praesentium quod. Alias nisi quod sunt.
+                                    {{ service.icon|safe }}
+                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">{{ service.title }}</h1>
+                                    <p class="is-marginless w3-large">
+                                        {#                                        {{ service.description }}#}
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aspernatur
+                                        consectetur, deleniti enim facere fuga harum in, magni nesciunt non officia
+                                        repellat reprehenderit repudiandae sequi sunt suscipit tempore veritatis
+                                        voluptates!
                                     </p>
                                 </v-card-text>
 
@@ -87,29 +136,30 @@
                         </v-card>
                     </div>
                 {% endfor %}
+                {% if services|length > 9 %}
+                    <div class="w3-center">
+                        <v-btn x-large rounded outlined>More Services</v-btn>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </section>
-    <section class="hero is-small w3-light-grey w3-padding-48">
+
+
+    <img src="{% static 'images/svg/bottom.svg' %}" alt="">
+    <section class="hero is-small w3-padding-48">
         <div class="hero-body container">
             <div class="columns is-mobile is-multiline">
                 <div class="column is-12">
                     <h1 class="w3-xxlarge">Insights</h1>
-                    <p class="w3-large" style="max-width: 800px">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores atque commodi
-                        consequatur
-                        quam
-                        quod repellat soluta tempora veritatis?
-                    </p>
-
                 </div>
                 {% for foo in 'abc' %}
                     <div class="column is-4-desktop is-4-tablet is-12-mobile">
-                        <v-card flat shaped max-width="374">
+                        <v-card flat shaped max-width="374" outlined>
 
                             <img style="max-height:350px"
 
-                                   src="https://media-public.canva.com/MADaq3lLYF0/1/thumbnail_large-1.jpg">
+                                 src="https://media-public.canva.com/MADaq3lLYF0/1/thumbnail_large-1.jpg">
                             <div class="w3-padding-small">
                                 <v-card-text>
                                     <v-chip-group
@@ -145,4 +195,5 @@
             </div>
         </div>
     </section>
+
 {% endblock %}
