@@ -22,7 +22,7 @@ def index(request):
                 the Petroleum Commission, etc. as necessary.
                 """,
                 'title': 'Entities Registration',
-                'icon': '<i class="fas fa-anchor fa-2x"></i>',
+                'icon': '<i class="fas fa-signature fa-2x"></i>',
             },
             {
                 'description': """
@@ -34,7 +34,7 @@ def index(request):
                     take place in the lifetime of a company.
                 """,
                 'title': 'Company Secretarial',
-                'icon': '<i class="fas fa-anchor fa-2x"></i>',
+                'icon': '<i class="fas fa-pen-nib fa-2x"></i>',
             },
             {
                 'description': """
@@ -44,8 +44,8 @@ def index(request):
                            withholding tax (WHT) and VAT, review and submit IT returns, and conduct tax compliance review
                             of companies’ tax and accounting records, covering VAT, WHT, and employee-related taxes.
                     """,
-                'title': 'Tax Advisory and Allied Services',
-                'icon': '<i class="fas fa-anchor fa-2x"></i>',
+                'title': 'Tax Advisory & Allied Services',
+                'icon': '<i class="fas fa-coins fa-2x"></i>',
             },
             {
                 'description': """
@@ -54,7 +54,7 @@ def index(request):
                     relationships with their different stakeholders.
                 """,
                 'title': 'Corporate Governance',
-                'icon': '<i class="fas fa-anchor fa-2x"></i>',
+                'icon': '<i class="fas fa-building fa-2x"></i>',
             },
             {
                 'description': """
@@ -63,7 +63,7 @@ def index(request):
                     upstream petroleum sectors.
                 """,
                 'title': 'Compliance',
-                'icon': '<i class="fas fa-anchor fa-2x"></i>',
+                'icon': '<i class="fas fa-registered fa-2x"></i>',
             },
             {
                 'description': """
@@ -73,14 +73,14 @@ def index(request):
                         regularize their stay in Ghana.
                     """,
                 'title': 'Immigration',
-                'icon': '<i class="fas fa-anchor fa-2x"></i>',
+                'icon': '<i class="fas fa-plane fa-2x"></i>',
             },
             {
                 'description': """
                     For added convenience and speed in commencing business, you can purchase a ready-made company from us.
                     """,
                 'title': 'Shelf companies',
-                'icon': '<i class="fas fa-anchor fa-2x"></i>',
+                'icon': '<i class="fas fa-archway fa-2x"></i>',
             },
 
             {
@@ -89,7 +89,7 @@ def index(request):
                     and provide experienced liquidators to handle the process.
                 """,
                 'title': 'Liquidation',
-                'icon': '<i class="fas fa-anchor fa-2x"></i>',
+                'icon': '<i class="fas fa-tint fa-2x"></i>',
             },
 
             {
@@ -98,7 +98,7 @@ def index(request):
                     translation services in French and English.
                 """,
                 'title': 'Translation',
-                'icon': '<i class="fas fa-anchor fa-2x"></i>',
+                'icon': '<i class="fas fa-language fa-2x"></i>',
             },
             {
                 'description': """
@@ -113,7 +113,7 @@ def index(request):
                     recruitment, job evaluation, performance management, and payroll compliance.
                 """,
                 'title': 'Human Resources',
-                'icon': '<i class="fas fa-anchor fa-2x"></i>',
+                'icon': '<i class="fas fa-user-circle fa-2x"></i>',
             },
         ]
     }
