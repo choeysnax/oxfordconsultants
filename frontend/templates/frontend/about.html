@@ -1,7 +1,60 @@
 {% extends 'frontend/base.html' %}
+{% load static %}
 {% block page_title %}
     {{ service.title }}
 {% endblock %}
+{% block extra_head %}
+    <style>
+        .bg-service {
+            background: url("{% static 'images/banner-image-4.jpg' %}");
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        .bgoverlay {
+            background: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+
+{% endblock %}
 {% block content %}
-    About
+    <section class="hero is-medium is-dark bg-service">
+        <div class="hero-body ">
+            <div class="container">
+                <div>
+                    {% include 'frontend/partials/oc_logo.html' %}
+                </div>
+                <br>
+                <br>
+                <div class="bgoverlay w3-padding-large w3-padding-32">
+                    <h1 class="w3-xxxlarge">About us</h1>
+                    <p class="w3-xlarge">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cupiditate dolorem eaque facilis
+                        magnam
+                        neque, praesentium quos soluta tenetur voluptas. Dolores fuga illum inventore ipsum minus
+                        officia
+                        quisquam voluptate voluptatum.
+                    </p>
+                    <br>
+                    <br>
+                    <p class="w3-xlarge">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cupiditate dolorem eaque facilis
+                        magnam
+                        neque, praesentium quos soluta tenetur voluptas. Dolores fuga illum inventore ipsum minus
+                        officia
+                        quisquam voluptate voluptatum.
+                    </p>
+                    <br>
+                    <br>
+                    <p class="w3-xlarge">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cupiditate dolorem eaque facilis
+                        magnam
+                        neque, praesentium quos soluta tenetur voluptas. Dolores fuga illum inventore ipsum minus
+                        officia
+                        quisquam voluptate voluptatum.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

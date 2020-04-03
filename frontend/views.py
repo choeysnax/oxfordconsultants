@@ -22,6 +22,7 @@ def index_view(request):
                 the Petroleum Commission, etc. as necessary.
                 """,
                 'title': 'Entities Registration',
+                'slug': 'human-resource',
                 'icon': '<i class="fas fa-signature fa-2x"></i>',
             },
             {
@@ -34,6 +35,7 @@ def index_view(request):
                     take place in the lifetime of a company.
                 """,
                 'title': 'Company Secretarial',
+                'slug': 'human-resource',
                 'icon': '<i class="fas fa-pen-nib fa-2x"></i>',
             },
             {
@@ -45,6 +47,7 @@ def index_view(request):
                             of companies’ tax and accounting records, covering VAT, WHT, and employee-related taxes.
                     """,
                 'title': 'Tax Advisory & Allied Services',
+                'slug': 'human-resource',
                 'icon': '<i class="fas fa-coins fa-2x"></i>',
             },
             {
@@ -54,6 +57,7 @@ def index_view(request):
                     relationships with their different stakeholders.
                 """,
                 'title': 'Corporate Governance',
+                'slug': 'human-resource',
                 'icon': '<i class="fas fa-building fa-2x"></i>',
             },
             {
@@ -63,6 +67,7 @@ def index_view(request):
                     upstream petroleum sectors.
                 """,
                 'title': 'Compliance',
+                'slug': 'human-resource',
                 'icon': '<i class="fas fa-registered fa-2x"></i>',
             },
             {
@@ -73,6 +78,7 @@ def index_view(request):
                         regularize their stay in Ghana.
                     """,
                 'title': 'Immigration',
+                'slug': 'human-resource',
                 'icon': '<i class="fas fa-plane fa-2x"></i>',
             },
             {
@@ -80,24 +86,25 @@ def index_view(request):
                     For added convenience and speed in commencing business, you can purchase a ready-made company from us.
                     """,
                 'title': 'Shelf companies',
+                'slug': 'human-resource',
                 'icon': '<i class="fas fa-archway fa-2x"></i>',
             },
-
             {
                 'description': """
                     We advise on the liquidation of companies that no longer intend to continue in business, 
                     and provide experienced liquidators to handle the process.
                 """,
                 'title': 'Liquidation',
+                'slug': 'human-resource',
                 'icon': '<i class="fas fa-tint fa-2x"></i>',
             },
-
             {
                 'description': """
                     From personal to business and official documents, we provide professional oral and written 
                     translation services in French and English.
                 """,
                 'title': 'Translation',
+                'slug': 'human-resource',
                 'icon': '<i class="fas fa-language fa-2x"></i>',
             },
             {
@@ -105,6 +112,7 @@ def index_view(request):
                        We provide nominee directors and shareholders for companies and individuals.
                    """,
                 'title': 'Nominee Services',
+                'slug': 'human-resource',
                 'icon': '<i class="fas fa-anchor fa-2x"></i>',
             },
             {
@@ -113,6 +121,7 @@ def index_view(request):
                     recruitment, job evaluation, performance management, and payroll compliance.
                 """,
                 'title': 'Human Resources',
+                'slug': 'human-resource',
                 'icon': '<i class="fas fa-user-circle fa-2x"></i>',
             },
         ]
@@ -128,8 +137,5 @@ def contact_view(request):
     return render(request, 'frontend/contact.html')
 
 
-def services_view(request, slug=None):
-    if slug:
-        return render(request, 'frontend/service.html')
-    else:
-        return render(request, 'frontend/services.html')
+def services_view(request, slug):
+    return render(request, 'frontend/service.html')

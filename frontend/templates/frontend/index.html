@@ -10,27 +10,17 @@
             background-size: cover;
             background-position: center;
         }
-
-        .bgoverlay {
-            background: rgba(0, 0, 0, 0.4);
-        }
     </style>
 {% endblock %}
 {% block content %}
-    <v-carousel class="w3-topbar w3-border-red" hide-delimiters :show-arrows="false" cycle height="80vh">
+    <v-carousel hide-delimiters :show-arrows="false" cycle height="80vh">
         {% for banner in banners %}
             <v-carousel-item>
                 <div style='background-image: url("{{ banner.src }}");background-position: center;background-size: 2000px;height: 100%;width: 100%;'>
                     <div class="bgoverlay w3-display-container" style="height: 100%;width: 100%;">
                         <div class="w3-display-middle w3-text-white" style="width: 80%;margin: auto">
                             <div class="w3-center">
-                                <img src="{% static 'images/svg/oc.svg' %}" alt="" style="height: 100px">
-                                <h1 class="w3-jumbo w3-text-black">
-                                    OXFORD
-                                </h1>
-                                <h1 class="w3-text-black" style="margin-top: -30px;font-size: 35px">
-                                    CONSULTANTS
-                                </h1>
+                                {% include 'frontend/partials/oc_logo.html' %}
                                 <h1 class="w3-xxlarge w3-hide-small w3-margin-bottom">
                                     {{ banner.text }}
                                     <br>
@@ -106,8 +96,9 @@
                                 </v-card-text>
 
                                 <v-card-actions>
-                                    <v-btn color="deep-purple lighten-2"
-                                           text>
+                                    <v-btn
+                                            href="{% url 'frontend:services' service.slug %}"
+                                            text>
                                         Read more&nbsp;<i class="fas fa-angle-right"></i>
                                     </v-btn>
                                 </v-card-actions>
@@ -155,8 +146,8 @@
                                 </v-card-text>
 
                                 <v-card-actions>
-                                    <v-btn color="deep-purple lighten-2"
-                                           text>
+                                    <v-btn
+                                            text>
                                         Read more&nbsp;<i class="fas fa-angle-right"></i>
                                     </v-btn>
                                 </v-card-actions>
