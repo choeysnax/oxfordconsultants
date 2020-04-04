@@ -7,7 +7,7 @@ def index_view(request):
         'banners': [
             {
                 'src': '/static/images/banner-image-2.jpg',
-                'text': 'Seamless corporate solutions',
+                'text': '...seamless corporate solutions',
                 'cta_text': 'Learn more',
             }
         ],

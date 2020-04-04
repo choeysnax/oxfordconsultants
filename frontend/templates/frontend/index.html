@@ -21,23 +21,23 @@
                         <div class="w3-display-middle w3-text-white" style="width: 80%;margin: auto">
                             <div class="w3-center">
                                 {% include 'frontend/partials/oc_logo.html' %}
-                                <h1 class="w3-xxlarge w3-hide-small w3-margin-bottom">
+                                <h1 class="w3-xxxlarge w3-hide-small w3-margin-bottom">
                                     {{ banner.text }}
                                     <br>
                                 </h1>
                                 <h6 class="w3-xlarge w3-hide-small w3-content">
-                                    We're a young, dynamic, bi-lingual, progressive company.
-                                    It is our culture and philosophy to work closely with our clients to understand all
-                                    their business needs.
+                                    We advise companies on issues relating to all phases of their life cycle, from
+                                    formation, to on-going issues such as their tax obligations, to end-of-life matters
+                                    such as liquidation.
                                 </h6>
                                 <h1 class="w3-xlarge w3-hide-medium w3-hide-large w3-margin-bottom">
                                     {{ banner.text }}
                                     <br>
                                 </h1>
                                 <h6 class="w3-large w3-hide-medium w3-hide-large">
-                                    We're a young, dynamic, bi-lingual, progressive company.
-                                    It is our culture and philosophy to work closely with our clients to understand all
-                                    their business needs.
+                                    We advise companies on issues relating to all phases of their life cycle, from
+                                    formation, to on-going issues such as their tax obligations, to end-of-life matters
+                                    such as liquidation.
                                 </h6>
                                 <br>
                                 <v-btn x-large rounded light>{{ banner.cta_text }}</v-btn>
@@ -68,8 +68,10 @@
                             services (French and English), and human resources services.
                         </p>
                     </div>
-                    <div class="media-right w3-hide-small" style="margin: auto">
-                        <img src="{% static 'images/oxford_white.png' %}" style="max-width: 300px" alt="">
+                    <div class="media-right w3-hide-small w3-center" style="margin: auto auto auto 40px">
+                        {% include 'frontend/partials/oc_logo.html' %}
+
+                        {#                        <img src="{% static 'images/oxford_white.png' %}" style="max-width: 300px" alt="">#}
                         <br>
                         <br>
                         <br>
@@ -86,7 +88,7 @@
                 <div class="column is-12">
                     <h1 class="w3-xxlarge w3-center">Services</h1>
                 </div>
-                {% for service in services|slice:9 %}
+                {% for service in services %}
                     <div class="column is-4-desktop is-4-tablet is-12-mobile w3-padding-32">
                         <v-card shaped flat max-width="370" outlined>
                             <div class="w3-padding-small">
@@ -121,7 +123,7 @@
         <div class="hero-body container">
             <div class="columns is-mobile is-multiline">
                 <div class="column is-12">
-                    <h1 class="w3-xxlarge">Blog posts</h1>
+                    <h1 class="w3-xxlarge w3-center">Articles</h1>
                 </div>
                 {% for foo in 'abc' %}
                     <div class="column is-4-desktop is-4-tablet is-12-mobile">
