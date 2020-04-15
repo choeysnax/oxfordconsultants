@@ -137,7 +137,7 @@
                                         </v-chip-group>
                                         <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">{{ insight.title }}</h1>
                                         <p class="is-marginless">
-                                            {{ insight.text }}
+                                            {{ insight.text|truncatechars:140 }}
                                         </p>
                                     </v-card-text>
 
