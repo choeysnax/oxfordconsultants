@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-
 # Create your views here.
 from django.urls import reverse
+
+from frontend.models import Insight
 
 
 def index_view(request):
@@ -126,7 +127,8 @@ def index_view(request):
                 'slug': 'human-resource',
                 'icon': '<i class="fas fa-user-circle fa-2x"></i>',
             },
-        ]
+        ],
+        'insights': Insight.objects.filter(is_active=True)
     }
     return render(request, 'frontend/index.html', context)
 

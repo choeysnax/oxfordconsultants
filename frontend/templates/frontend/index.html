@@ -123,39 +123,35 @@
         <div class="hero-body container">
             <div class="columns is-mobile is-multiline">
                 <div class="column is-12">
-                    <h1 class="w3-xxlarge w3-center">Articles</h1>
+                    <h1 class="w3-xxlarge w3-center">Insights</h1>
                 </div>
-                {% for foo in 'abc' %}
+                {% for insight in insights %}
                     <div class="column is-4-desktop is-4-tablet is-12-mobile">
-                        <v-card flat shaped max-width="374" outlined>
+                        <a href="{{ insight.url }}" target="_blank">
+                            <v-card flat shaped max-width="374" outlined>
+                                <div class="w3-padding-small">
+                                    <v-card-text>
+                                        <v-chip-group
+                                                active-class="deep-purple accent-4 white--text">
+                                            <v-chip>{{ insight.tag }}</v-chip>
+                                        </v-chip-group>
+                                        <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">{{ insight.title }}</h1>
+                                        <p class="is-marginless">
+                                            {{ insight.text }}
+                                        </p>
+                                    </v-card-text>
 
-                            <img style="max-height:350px"
+                                    <v-card-actions>
+                                        <v-btn
+                                                text>
+                                            Read more&nbsp;<i class="fas fa-angle-right"></i>
+                                        </v-btn>
+                                    </v-card-actions>
 
-                                 src="https://media-public.canva.com/MADaq3lLYF0/1/thumbnail_large-1.jpg">
-                            <div class="w3-padding-small">
-                                <v-card-text>
-                                    <v-chip-group
-                                            active-class="deep-purple accent-4 white--text">
-                                        <v-chip>Technology</v-chip>
-                                    </v-chip-group>
-                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Doing Business in Ghana</h1>
-                                    <p class="is-marginless">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis
-                                        ea
-                                        eaque facere hic in nemo optio provident soluta tempora. Excepturi labore nisi
-                                        pariatur praesentium quod. Alias nisi quod sunt.
-                                    </p>
-                                </v-card-text>
+                                </div>
+                            </v-card>
+                        </a>
 
-                                <v-card-actions>
-                                    <v-btn
-                                            text>
-                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
-                                    </v-btn>
-                                </v-card-actions>
-
-                            </div>
-                        </v-card>
                     </div>
                 {% endfor %}
                 <div class="column is-12 w3-center">
