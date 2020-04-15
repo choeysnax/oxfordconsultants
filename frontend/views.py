@@ -1,7 +1,9 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
 
 # Create your views here.
+from django.urls import reverse
+
+
 def index_view(request):
     context = {
         'banners': [
@@ -139,3 +141,7 @@ def contact_view(request):
 
 def services_view(request, slug):
     return render(request, 'frontend/service.html')
+
+
+def redirect_to_english(request):
+    return redirect(reverse('frontend:home'))
