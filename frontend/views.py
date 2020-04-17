@@ -147,3 +147,7 @@ def services_view(request, slug):
 
 def redirect_to_english(request):
     return redirect(reverse('frontend:home'))
+
+
+def testimonials_view(request):
+    return render(request, 'frontend/testimonials.html')

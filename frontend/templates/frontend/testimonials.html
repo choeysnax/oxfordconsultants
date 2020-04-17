@@ -1,0 +1,45 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% block page_title %}
+    Insights
+{% endblock %}
+<style>
+    .v {
+        color: red;
+    }
+</style>
+
+{% block content %}
+    <section class="hero is-medium w3-white" style="min-height: 100vh">
+        <div class="hero-body">
+            <div class="container ">
+                <div class="w3-padding-large w3-padding-16">
+                    <h1 class="w3-xxxlarge">Testimonials</h1>
+                    <br>
+                    <div class="w3-xlarge columns is-multiline is-centered">
+                        {% for foo in 'abcdefgh' %}
+                            <div class=" column is-10">
+                                <a href="">
+
+                                    <div class="card w3-bottombar w3-bottombar w3-border-black trans-400">
+                                        <div class="card-content">
+                                            <p class="w3-padding-16 w3-xlarge">
+                                                The team Oxford consultants were absolutely brilliant.
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at
+                                                deserunt eaque, inventore ipsam ipsum magnam, molestias nulla quam qui
+                                                quisquam repellendus sint tenetur totam vitae. Incidunt itaque nihil
+                                                quam.
+                                            </p>
+                                            <strong>- Charles Thompson</strong>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

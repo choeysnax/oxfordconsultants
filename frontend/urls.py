@@ -7,6 +7,7 @@ urlspatterns_remains = [
     path('', views.index_view, name='home'),
     path('', views.index_view, name='index'),
     path('about', views.about_view, name='about'),
+    path('testimonials', views.testimonials_view, name='testimonials'),
     path('contact', views.contact_view, name='contact'),
     path('services/<slug:slug>', views.services_view, name='services'),
 ]
