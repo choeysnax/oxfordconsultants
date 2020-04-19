@@ -15,7 +15,7 @@ services_list = [
                 the Petroleum Commission, etc. as necessary.
                 """,
         'title': 'Entities Registration',
-        'slug': 'entitites-registration',
+        'slug': 'entities-registration',
         'icon': '<i class="fas fa-signature fa-2x"></i>',
     },
     {
@@ -40,7 +40,7 @@ services_list = [
                             of companies’ tax and accounting records, covering VAT, WHT, and employee-related taxes.
                     """,
         'title': 'Tax Advisory & Allied Services',
-        'slug': 'tax-Advisory-allied-services',
+        'slug': 'tax-advisory-allied-services',
         'icon': '<i class="fas fa-coins fa-2x"></i>',
     },
     {
@@ -114,7 +114,7 @@ services_list = [
                     recruitment, job evaluation, performance management, and payroll compliance.
                 """,
         'title': 'Human Resources',
-        'slug': 'human-resource',
+        'slug': 'human-resources',
         'icon': '<i class="fas fa-user-circle fa-2x"></i>',
     },
 ]
