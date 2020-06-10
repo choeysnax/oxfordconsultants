@@ -16,3 +16,8 @@
         margin-right: 130px !important;
     }
 }
+
+.w3-padding-8 {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+}
