@@ -22,6 +22,16 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 ENVIRONMENT = config('ENVIRONMENT', default='local')
 
+if ENVIRONMENT != 'local':
+    import sentry_sdk
+    from sentry_sdk.integrations.django import DjangoIntegration
+
+    sentry_sdk.init(
+        dsn="https://8c8adf80a7f743199bfb87345e3234fe@o224520.ingest.sentry.io/5271343",
+        integrations=[DjangoIntegration()],
+        send_default_pii=True
+
+    )
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
