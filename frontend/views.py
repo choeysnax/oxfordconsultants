@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib import messages
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 # Create your views here.
 from django.urls import reverse
@@ -152,6 +153,16 @@ def contact_view(request):
     if request.method == 'POST':
         contact_form = ContactForm(request.POST)
         if contact_form.is_valid():
+            send_mail(
+                f"[ContactPage] {contact_form.cleaned_data.get('subject')}",
+                f"Name: {contact_form.cleaned_data.get('name')}\n"
+                f"Email: {contact_form.cleaned_data.get('email')}\n"
+                f"Phone: {contact_form.cleaned_data.get('phone')}\n\n"
+                f"Message: {contact_form.cleaned_data.get('message')}\n",
+                'contact-us-page@oxfordconsultantsgh.com',
+                ['akuaa@oxfordconsultantsgh.com'],
+                fail_silently=False,
+            )
             messages.success(request, 'Message has successfully been submitted')
         pass
     else:
