@@ -39,8 +39,6 @@
                                     formation, to on-going issues such as their tax obligations, to end-of-life matters
                                     such as liquidation.
                                 </h6>
-                                <br>
-                                <v-btn x-large rounded light>{{ banner.cta_text }}</v-btn>
                             </div>
                         </div>
                     </div>
@@ -90,6 +88,12 @@
 
                 </div>
             </div>
+            <br>
+            <br>
+            <div class="w3-center">
+                <v-btn href="{% url 'frontend:about' %}" x-large rounded light>Learn more</v-btn>
+            </div>
+
         </div>
     </section>
     <img src="{% static 'images/svg/top.svg' %}" alt="" style="width: 100%">

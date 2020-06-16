@@ -1,11 +1,17 @@
 from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.urls import path
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
+from oxfordconsultants.sitemap import StaticViewSitemap
 from search import views as search_views
+
+sitemaps = {
+    'static': StaticViewSitemap,
+}
 
 urlpatterns = [
     url(r'^backend/', admin.site.urls),
@@ -24,6 +30,8 @@ urlpatterns = [
     # Alternatively, if you want Wagtail pages to be served from a subpath
     # of your site, rather than the site root:
     #    url(r'^pages/', include(wagtail_urls)),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap')
 ]
 
 if settings.DEBUG:

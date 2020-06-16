@@ -152,27 +152,21 @@
                     <div class="column">
                         <div class="columns">
                             <div class="column is-2">
-                                <a href="{% url 'frontend:index' %}"
+                                <a href="{% url 'frontend:home' %}"
                                    class="is-uppercase w3-text-white w3-border-bottom">
-                                    About us
+                                    Home
                                 </a>
                             </div>
                             <div class="column is-2">
-                                <a href="{% url 'frontend:index' %}"
+                                <a href="{% url 'frontend:about' %}"
                                    class="is-uppercase w3-text-white w3-border-bottom">
-                                    Contact us
+                                    About
                                 </a>
                             </div>
                             <div class="column is-2">
-                                <a href="{% url 'frontend:index' %}"
+                                <a href="{% url 'frontend:contact' %}"
                                    class="is-uppercase w3-text-white w3-border-bottom">
-                                    Careers
-                                </a>
-                            </div>
-                            <div class="column is-2">
-                                <a href="{% url 'frontend:index' %}"
-                                   class="is-uppercase w3-text-white w3-border-bottom">
-                                    Locations
+                                    Contact
                                 </a>
                             </div>
                         </div>
@@ -206,12 +200,8 @@
                 <div class="level-left">
                     <div class="level-item"><a href="" class="w3-text-white w3-border-bottom">Privacy Statement</a>
                     </div>
-                    <div class="level-item"><a href="" class="w3-text-white w3-border-bottom">Terms and
-                        Conditions</a>
-                    </div>
-                    <div class="level-item"><a href="" class="w3-text-white w3-border-bottom">Cookie Policy</a>
-                    </div>
-                    <div class="level-item"><a href="" class="w3-text-white w3-border-bottom">Sitemap</a></div>
+                    <div class="level-item"><a href="{% url 'django.contrib.sitemaps.views.sitemap' %}"
+                                               class="w3-text-white w3-border-bottom">Sitemap</a></div>
                 </div>
                 <div class="level-right w3-center">
                     <div class="level-item"><a href="" class="w3-text-white">© 2020 Oxford Consultants. All Rights

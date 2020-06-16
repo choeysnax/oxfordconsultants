@@ -1,3 +1,5 @@
+from django import forms
+from django.contrib import messages
 from django.shortcuts import render, redirect
 # Create your views here.
 from django.urls import reverse
@@ -89,7 +91,7 @@ services_list = [
                 """,
         'title': 'Liquidation',
         'slug': 'liquidation',
-        'icon': '<i class="fas fa-tint fa-2x"></i>',
+        'icon': '<i class="fas fa-coins fa-2x"></i>',
     },
     {
         'description': """
@@ -140,7 +142,24 @@ def about_view(request):
 
 
 def contact_view(request):
-    return render(request, 'frontend/contact.html')
+    class ContactForm(forms.Form):
+        name = forms.CharField(max_length=500, widget=forms.Textarea())
+        email = forms.EmailField()
+        phone = forms.CharField(max_length=500, widget=forms.Textarea())
+        subject = forms.CharField(max_length=500, widget=forms.Textarea())
+        message = forms.CharField(max_length=500, widget=forms.Textarea())
+
+    if request.method == 'POST':
+        contact_form = ContactForm(request.POST)
+        if contact_form.is_valid():
+            messages.success(request, 'Message has successfully been submitted')
+        pass
+    else:
+        contact_form = ContactForm()
+    context = {
+        'contact_form': contact_form
+    }
+    return render(request, 'frontend/contact.html', context)
 
 
 def services_view(request, slug):
