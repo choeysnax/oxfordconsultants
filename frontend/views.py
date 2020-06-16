@@ -160,7 +160,7 @@ def contact_view(request):
                 f"Phone: {contact_form.cleaned_data.get('phone')}\n\n"
                 f"Message: {contact_form.cleaned_data.get('message')}\n",
                 'contact-us-page@oxfordconsultantsgh.com',
-                ['akuaa@oxfordconsultantsgh.com'],
+                ['cpkthompson@gmail.com'],
                 fail_silently=False,
             )
             messages.success(request, 'Message has successfully been submitted')
