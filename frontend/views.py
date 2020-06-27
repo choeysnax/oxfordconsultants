@@ -1,10 +1,10 @@
-from django import forms
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 # Create your views here.
 from django.urls import reverse
 
+from frontend.forms import ContactForm
 from frontend.models import Insight
 
 services_list = [
@@ -143,13 +143,6 @@ def about_view(request):
 
 
 def contact_view(request):
-    class ContactForm(forms.Form):
-        name = forms.CharField(max_length=500, widget=forms.Textarea())
-        email = forms.EmailField()
-        phone = forms.CharField(max_length=500, widget=forms.Textarea())
-        subject = forms.CharField(max_length=500, widget=forms.Textarea())
-        message = forms.CharField(max_length=500, widget=forms.Textarea())
-
     if request.method == 'POST':
         contact_form = ContactForm(request.POST)
         if contact_form.is_valid():
