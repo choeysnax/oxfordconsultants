@@ -1,4 +1,4 @@
-{% load static %}
+{% load static wagtailimages_tags wagtailcore_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -151,19 +151,25 @@
                 <div class="columns is-multiline">
                     <div class="column">
                         <div class="columns">
-                            <div class="column is-2">
+                            <div class="w3-margin-right w3-padding-8">
                                 <a href="{% url 'frontend:home' %}"
                                    class="is-uppercase w3-text-white w3-border-bottom">
                                     Home
                                 </a>
                             </div>
-                            <div class="column is-2">
+                            <div class="w3-margin-right w3-padding-8">
                                 <a href="{% url 'frontend:about' %}"
                                    class="is-uppercase w3-text-white w3-border-bottom">
                                     About
                                 </a>
                             </div>
-                            <div class="column is-2">
+                            <div class="w3-margin-right w3-padding-8">
+                                <a href="{% url 'frontend:about' %}"
+                                   class="is-uppercase w3-text-white w3-border-bottom">
+                                    Testimonials
+                                </a>
+                            </div>
+                            <div class="w3-margin-right w3-padding-8">
                                 <a href="{% url 'frontend:contact' %}"
                                    class="is-uppercase w3-text-white w3-border-bottom">
                                     Contact
@@ -198,13 +204,15 @@
                 <hr>
 
                 <div class="level-left">
-                    <div class="level-item"><a href="" class="w3-text-white w3-border-bottom">Privacy Statement</a>
+                    <div class="level-item"><a href="{% slugurl 'privacy-policy' %}"
+                                               class="w3-text-white w3-border-bottom">Privacy Policy</a>
                     </div>
                     <div class="level-item"><a href="{% url 'django.contrib.sitemaps.views.sitemap' %}"
                                                class="w3-text-white w3-border-bottom">Sitemap</a></div>
                 </div>
                 <div class="level-right w3-center">
-                    <div class="level-item"><a href="" class="w3-text-white">© 2020 Oxford Consultants. All Rights
+                    <div class="level-item"><a href="" class="w3-text-white">© 2020 - {{ current_year }} Oxford
+                        Consultants. All Rights
                         Reserved.</a></div>
                 </div>
             </div>
