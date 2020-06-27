@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from frontend.forms import ContactForm
-from frontend.models import Insight
+from frontend.models import Insight, Testimonial
 
 services_list = [
     {
@@ -182,4 +182,7 @@ def redirect_to_english(request):
 
 
 def testimonials_view(request):
-    return render(request, 'frontend/testimonials.html')
+    context = {
+        'testimonials': Testimonial.objects.all()
+    }
+    return render(request, 'frontend/testimonials.html', context)

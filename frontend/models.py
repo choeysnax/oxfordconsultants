@@ -15,3 +15,13 @@ class Insight(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Testimonial(models.Model):
+    author = models.CharField(max_length=140)
+    text = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    update = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.author

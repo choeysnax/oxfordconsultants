@@ -14,7 +14,7 @@ urlspatterns_remains = [
 urlpatterns = [
 
     path('', views.redirect_to_english),
-    path('fr/', include(urlspatterns_remains)),
+    # path('fr/', include(urlspatterns_remains)),
     path('en/', include(urlspatterns_remains)),
 
 ]

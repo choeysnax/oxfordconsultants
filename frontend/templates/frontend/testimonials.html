@@ -17,20 +17,16 @@
                     <h1 class="w3-xxxlarge">Testimonials</h1>
                     <br>
                     <div class="w3-xlarge columns is-multiline is-centered">
-                        {% for foo in '' %}
+                        {% for testimonial in testimonials %}
                             <div class=" column is-10">
                                 <a href="">
 
                                     <div class="card w3-bottombar w3-bottombar w3-border-black trans-400">
                                         <div class="card-content">
                                             <p class="w3-padding-16 w3-xlarge">
-                                                The team Oxford consultants were absolutely brilliant.
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at
-                                                deserunt eaque, inventore ipsam ipsum magnam, molestias nulla quam qui
-                                                quisquam repellendus sint tenetur totam vitae. Incidunt itaque nihil
-                                                quam.
+                                                {{ testimonial.text|linebreaksbr }}
                                             </p>
-                                            <strong>- Charles Thompson</strong>
+                                            <strong>- {{ testimonial.author }}</strong>
                                         </div>
                                     </div>
                                 </a>
