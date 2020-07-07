@@ -36,7 +36,7 @@ class Testimonial(models.Model):
 
 class Section(Orderable):
     title = models.CharField(max_length=140, blank=True)
-    body = RichTextField(max_length=255, null=True, blank=True)
+    body = RichTextField(null=True, blank=True)
     page = ParentalKey('RegistrationPage', on_delete=models.CASCADE, related_name='sections')
     panels = [
         FieldPanel('title'),
