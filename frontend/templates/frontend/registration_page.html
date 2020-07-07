@@ -22,8 +22,8 @@
     <div class="w3-content">
         <section class="w3-padding-64 w3-padding">
             <div class="w3-hide-small">
-                <div class="tabs is-boxed is-medium">
-                    <ul>
+                <div class="tabs is-boxed is-medium is-marginless">
+                    <ul class="is-paddingless">
                         {% for section in page.sections.all %}
                             <li id="section-tab-{{ section.id }}"
                                 class="tablinks">
@@ -33,8 +33,11 @@
                     </ul>
                 </div>
                 {% for section in page.sections.all %}
-                    <div id="section-body-{{ section.id }}" class="tabcontent">
+                    <div id="section-body-{{ section.id }}"
+                         class="tabcontent w3-padding-large w3-border-bottom w3-border-left w3-border-right">
+                        <br>
                         {{ section.body|richtext }}
+                        <br>
                     </div>
                 {% endfor %}
             </div>
