@@ -21,3 +21,7 @@
     padding-top: 8px !important;
     padding-bottom: 8px !important;
 }
+
+div.rich-text, div.rich-text > p {
+    font-size: inherit;
+}

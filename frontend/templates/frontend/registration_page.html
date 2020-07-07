@@ -1,0 +1,84 @@
+{% extends 'frontend/base.html' %}
+{% load static wagtailimages_tags wagtailcore_tags %}
+{% block page_title %}
+    {{ page.title }}
+{% endblock %}
+{% block extra_head %}
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+{% endblock %}
+{% block content %}
+    <div class="hero is-medium is-black">
+        <div class="hero-body w3-container w3-center w3-content">
+            <div class="w3-text-white">
+                <strong class="w3-xxlarge w3-text-white">{{ page.title }}</strong>
+                <br>
+                <div class="w3-large w3-margin-top">
+                    {{ page.introduction_text|richtext|linebreaksbr }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w3-content">
+        <section class="w3-padding-64 w3-padding">
+            <div class="w3-hide-small">
+                <div class="tabs is-boxed is-medium is-centered">
+                    <ul>
+                        {% for section in page.sections.all %}
+                            <li id="section-tab-{{ section.id }}"
+                                class="tablinks">
+                                <a onclick="switchTab('{{ section.id }}')"><strong>{{ section.title }}</strong></a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% for section in page.sections.all %}
+                    <div id="section-body-{{ section.id }}" class="tabcontent">
+                        {{ section.body|richtext }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="w3-hide-medium w3-hide-large">
+                <v-expansion-panels mandatory accordion>
+                    {% for section in page.sections.all %}
+                        <v-expansion-panel popout>
+                            <v-expansion-panel-header class="w3-padding-24 w3-large">
+                                <strong>{{ section.title }}</strong>
+                            </v-expansion-panel-header>
+
+                            <v-expansion-panel-content>
+                                <p>{{ section.body|richtext }}</p>
+                            </v-expansion-panel-content>
+                        </v-expansion-panel>
+                    {% endfor %}
+                </v-expansion-panels>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+
+{% block extra_body %}
+    <script>
+        function switchTab(id) {
+            let i, tabcontent, tablinks;
+
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                try {
+                    tablinks[i].classList.remove('is-active');
+                } catch (e) {
+
+                }
+            }
+            document.getElementById(`section-tab-${id}`).classList.add('is-active');
+            document.getElementById(`section-body-${id}`).style.display = 'block';
+        }
+
+        switchTab('{{ page.sections.first.id }}')
+    </script>
+{% endblock %}
