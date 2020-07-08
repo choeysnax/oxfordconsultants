@@ -1,10 +1,16 @@
 from django.db import models
-
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
-from wagtail.admin.edit_handlers import MultiFieldPanel, InlinePanel, FieldPanel
-from wagtail.core.fields import RichTextField
+from wagtail.admin.edit_handlers import (
+    FieldPanel,
+    InlinePanel,
+    MultiFieldPanel,
+    StreamFieldPanel,
+)
+from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page, Orderable
+
+from .blocks import BaseStreamBlock
 
 
 class HomePage(Page):
@@ -53,4 +59,13 @@ class RegistrationPage(Page, ClusterableModel):
             InlinePanel('sections', label="Section"),
 
         ], heading="Sections")
+    ]
+
+
+class StandardPage(Page):
+    body = StreamField(
+        BaseStreamBlock(), verbose_name="Page body", blank=True
+    )
+    content_panels = Page.content_panels + [
+        StreamFieldPanel('body'),
     ]

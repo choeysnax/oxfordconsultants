@@ -1,0 +1,7 @@
+{% extends 'frontend/base.html' %}
+{% load static wagtailimages_tags wagtailcore_tags %}
+{% block content %}
+    <div class="w3-content w3-large w3-padding-32 w3-container">
+        {{ page.body|linebreaksbr }}
+    </div>
+{% endblock %}
