@@ -44,9 +44,11 @@ class Section(Orderable):
     title = models.CharField(max_length=140, blank=True)
     body = RichTextField(null=True, blank=True)
     page = ParentalKey('RegistrationPage', on_delete=models.CASCADE, related_name='sections')
+    file = models.FileField(upload_to='files/', null=True, blank=True)
     panels = [
         FieldPanel('title'),
         FieldPanel('body'),
+        FieldPanel('file'),
     ]
 
 
