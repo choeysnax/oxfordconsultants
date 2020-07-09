@@ -37,8 +37,8 @@
                          class="tabcontent w3-padding-large w3-border-bottom w3-border-left w3-border-right">
                         <br>
                         {{ section.body|richtext }}
-                        <br>
                         {% if section.file %}
+                            <br>
                             <table class="table is-fullwidth">
                                 <thead>
                                 <tr>
@@ -71,6 +71,7 @@
                                 </tbody>
                             </table>
                         {% endif %}
+                        <br>
                     </div>
 
                 {% endfor %}
@@ -84,7 +85,43 @@
                             </v-expansion-panel-header>
 
                             <v-expansion-panel-content>
-                                <p>{{ section.body|richtext }}</p>
+                                <div>{{ section.body|richtext }}</div>
+                                {% if section.file %}
+                                    <br>
+                                    <table class="table is-fullwidth">
+                                        <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th class="w3-right-align w3-center">Download</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td style="margin: auto">
+                                                <div>
+                                                    {{ section.title }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p style="color: transparent">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                                                    culpa
+                                                    tenetur voluptas?
+                                                </p>
+                                            </td>
+                                            <td></td>
+                                            <td class="w3-right-align">
+                                                <v-btn rounded color="primary" href="{{ section.file.url }}">Download
+                                                </v-btn>
+                                            </td>
+
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                {% endif %}
                             </v-expansion-panel-content>
                         </v-expansion-panel>
                     {% endfor %}
