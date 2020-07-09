@@ -72,8 +72,8 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'django.contrib.sitemaps'
-
+    'django.contrib.sitemaps',
+    'storages'
 ]
 
 SITE_ID = 1
@@ -183,9 +183,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
-
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 100000
 # Wagtail settings
 
@@ -219,3 +216,21 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
+
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID', default='AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY', default='AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', default='AWS_STORAGE_BUCKET_NAME')
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+# media
+AWS_PUBLIC_MEDIA_LOCATION = 'media/public'
+DEFAULT_FILE_STORAGE = 'oxfordconsultants.storage_backends.PublicMediaStorage'
+AWS_PRIVATE_MEDIA_LOCATION = 'media/private'
+PRIVATE_FILE_STORAGE = 'oxfordconsultants.storage_backends.PrivateMediaStorage'
+AWS_DEFAULT_ACL = "public-read"
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN,
+                                AWS_PUBLIC_MEDIA_LOCATION)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+THUMBNAIL_DEFAULT_STORAGE = DEFAULT_FILE_STORAGE
