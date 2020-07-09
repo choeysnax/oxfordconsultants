@@ -38,7 +38,41 @@
                         <br>
                         {{ section.body|richtext }}
                         <br>
+                        {% if section.file %}
+                            <table class="table is-fullwidth">
+                                <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th class="w3-right-align w3-center">Download</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="margin: auto">
+                                        <div>
+                                            {{ section.title }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p style="color: transparent">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias culpa
+                                            tenetur voluptas?
+                                        </p>
+                                    </td>
+                                    <td></td>
+                                    <td class="w3-right-align">
+                                        <v-btn rounded color="primary" href="{{ section.file.url }}">Download</v-btn>
+                                    </td>
+
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        {% endif %}
                     </div>
+
                 {% endfor %}
             </div>
             <div class="w3-hide-medium w3-hide-large">
