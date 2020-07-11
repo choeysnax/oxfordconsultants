@@ -91,6 +91,26 @@
 </div>
 <div id="app" class="w3-hide w3-animate-opacity trans-400">
     <v-app>
+        {% if messages %}
+            <div style="position: fixed;width: 100%;bottom: 0;z-index: 1000">
+                {% for message in messages %}
+                    {% if message.level_tag == 'success' %}
+                        <div class="w3-padding-large w3-large w3-green w3-center w3-animate-bottom">
+                            {{ message }}
+                        </div>
+                    {% elif message.level_tag == 'info' %}
+                        <div class="w3-padding-large w3-large w3-blue w3-center w3-animate-bottom">
+                            {{ message }}
+                        </div>
+                    {% elif message.level_tag == 'error' %}
+                        <div class="w3-padding-large w3-large w3-red w3-center w3-animate-bottom">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+
+                {% endfor %}
+            </div>
+        {% endif %}
         <v-toolbar flat>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"
                                 class="w3-hide-medium w3-hide-large w3-hide"></v-app-bar-nav-icon>
@@ -107,7 +127,6 @@
                     </div>
                 </v-toolbar-title>
             </a>
-
             <v-spacer></v-spacer>
             <div class="w3-hide-small w3-hide-medium">
                 {% include 'frontend/partials/navigation.html' %}

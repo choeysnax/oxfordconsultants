@@ -10,6 +10,7 @@ urlspatterns_remains = [
     path('testimonials', views.testimonials_view, name='testimonials'),
     path('contact', views.contact_view, name='contact'),
     path('services/<slug:slug>', views.services_view, name='services'),
+    path('upload-form', views.upload_form_view, name='upload_form'),
 ]
 urlpatterns = [
 

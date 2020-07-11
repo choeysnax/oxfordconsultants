@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from frontend.forms import ContactForm
-from frontend.models import Insight, Testimonial
+from frontend.models import Insight, Testimonial, Upload, UploadForm
 
 services_list = [
     {
@@ -186,3 +186,19 @@ def testimonials_view(request):
         'testimonials': Testimonial.objects.all()
     }
     return render(request, 'frontend/testimonials.html', context)
+
+
+def upload_form_view(request):
+    if request.method == 'POST':
+        upload_form = UploadForm(request.POST, request.FILES)
+        if upload_form.is_valid():
+            upload: Upload = upload_form.save()
+            messages.success(request, f'{upload.file_name} uploaded successfully')
+            send_mail(
+                subject=f"Upload on Oxford Consultants  [{upload.name}]",
+                message=f"File upload: <a href='{upload.file.url}'>{upload.file_name}</a>",
+                from_email='uploads@oxfordconsultantsgh.com',
+                recipient_list=['akuaa@oxfordconsultantsgh.com'],
+                fail_silently=False,
+            )
+    return redirect(request.META['HTTP_REFERER'])

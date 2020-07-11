@@ -43,33 +43,52 @@
                                 <thead>
                                 <tr>
                                     <th>Title</th>
-                                    <th></th>
-                                    <th></th>
+                                    <th class="w3-hide-small"></th>
+                                    <th class="w3-hide-small"></th>
                                     <th class="w3-right-align w3-center">Download</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
+
                                     <td style="margin: auto">
-                                        <div>
+                                        <div style="white-space: nowrap" class="w3-large">
                                             {{ section.title }}
                                         </div>
                                     </td>
-                                    <td>
+                                    <td class="w3-hide-small">
                                         <p style="color: transparent">
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias culpa
-                                            tenetur voluptas?
                                         </p>
                                     </td>
-                                    <td></td>
+                                    <td class="w3-hide-small"></td>
                                     <td class="w3-right-align">
-                                        <v-btn rounded color="primary" href="{{ section.file.url }}">Download</v-btn>
+                                        <v-btn rounded color="primary" href="{{ section.file.url }}">Download
+                                            <v-icon>mdi-download</v-icon>
+                                        </v-btn>
                                     </td>
 
                                 </tr>
 
                                 </tbody>
                             </table>
+                        {% endif %}
+                        {% if section.upload %}
+                            <form action="{% url 'frontend:upload_form' %}" method="post"
+                                  enctype="multipart/form-data" class="w3-padding-large w3-card-4 w3-padding-32">
+                                <h1 class="w3-large">{{ section.upload_instruction_title }}</h1>
+                                {% if section.upload_instruction_body %}
+                                    <p>
+                                        {{ section.upload_instruction_body }}
+                                    </p>
+                                {% endif %}
+                                {% csrf_token %}
+                                <div class="w3-padding w3-light-grey w3-margin-top w3-margin-bottom w3-padding-16">
+                                    {{ upload_form.as_table }}
+                                    <input type="text" name="name" value="{{ section.title }}" hidden>
+                                </div>
+                                <v-btn type="submit" color="primary" rounded>Upload</v-btn>
+                            </form>
                         {% endif %}
                         <br>
                     </div>
@@ -85,35 +104,36 @@
                             </v-expansion-panel-header>
 
                             <v-expansion-panel-content>
-                                <div>{{ section.body|richtext }}</div>
+                                {{ section.body|richtext }}
                                 {% if section.file %}
                                     <br>
                                     <table class="table is-fullwidth">
                                         <thead>
                                         <tr>
                                             <th>Title</th>
-                                            <th></th>
-                                            <th></th>
+                                            <th class="w3-hide-small"></th>
+                                            <th class="w3-hide-small"></th>
                                             <th class="w3-right-align w3-center">Download</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
+
                                             <td style="margin: auto">
-                                                <div>
+                                                <div style="white-space: nowrap" class="w3-large">
                                                     {{ section.title }}
                                                 </div>
                                             </td>
-                                            <td>
+                                            <td class="w3-hide-small">
                                                 <p style="color: transparent">
                                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
                                                     culpa
-                                                    tenetur voluptas?
                                                 </p>
                                             </td>
-                                            <td></td>
+                                            <td class="w3-hide-small"></td>
                                             <td class="w3-right-align">
                                                 <v-btn rounded color="primary" href="{{ section.file.url }}">Download
+                                                    <v-icon>mdi-download</v-icon>
                                                 </v-btn>
                                             </td>
 
@@ -122,6 +142,25 @@
                                         </tbody>
                                     </table>
                                 {% endif %}
+                                {% if section.upload %}
+                                    <form action="{% url 'frontend:upload_form' %}" method="post"
+                                          enctype="multipart/form-data"
+                                          class="w3-padding-large w3-card-4 w3-padding-32">
+                                        <h1 class="w3-large">{{ section.upload_instruction_title }}</h1>
+                                        {% if section.upload_instruction_body %}
+                                            <p>
+                                                {{ section.upload_instruction_body }}
+                                            </p>
+                                        {% endif %}
+                                        {% csrf_token %}
+                                        <div class="w3-padding w3-light-grey w3-margin-top w3-margin-bottom w3-padding-16">
+                                            {{ upload_form.as_table }}
+                                            <input type="text" name="name" value="{{ section.title }}" hidden>
+                                        </div>
+                                        <v-btn type="submit" color="primary" rounded>Upload</v-btn>
+                                    </form>
+                                {% endif %}
+                                <br>
                             </v-expansion-panel-content>
                         </v-expansion-panel>
                     {% endfor %}
