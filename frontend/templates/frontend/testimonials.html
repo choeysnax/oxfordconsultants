@@ -23,12 +23,14 @@
 
                                     <div class="card w3-bottombar w3-bottombar w3-border-black trans-400">
                                         <div class="card-content">
-                                            <p class="w3-padding-16 w3-xlarge">
-                                                {{ testimonial.text|linebreaksbr }}
+                                            <p class="w3-padding-16 w3-large">
+                                                <em>
+                                                    {{ testimonial.text|linebreaksbr }}
+                                                </em>
                                             </p>
-                                            <strong class="w3-xlarge w3-block">{{ testimonial.author }}</strong>
+                                            <strong class="w3-large w3-block">{{ testimonial.author }}</strong>
                                             {% if testimonial.company_name %}
-                                                <span class="w3-block w3-xlarge">{{ testimonial.company_name }}</span>
+                                                <span class="w3-block w3-large">{{ testimonial.company_name }}</span>
                                             {% endif %}
                                         </div>
                                     </div>
