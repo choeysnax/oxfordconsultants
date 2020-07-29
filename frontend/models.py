@@ -33,7 +33,8 @@ class Insight(models.Model):
 
 
 class Testimonial(models.Model):
-    author = models.CharField(max_length=140)
+    author = models.CharField(max_length=140, blank=True)
+    company_name = models.CharField(max_length=140, blank=True)
     text = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)

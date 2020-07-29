@@ -26,7 +26,10 @@
                                             <p class="w3-padding-16 w3-xlarge">
                                                 {{ testimonial.text|linebreaksbr }}
                                             </p>
-                                            <strong>- {{ testimonial.author }}</strong>
+                                            <strong class="w3-xlarge">- {{ testimonial.author }}</strong>
+                                            {% if testimonial.company_name %}
+                                                <span class="w3-block w3-xlarge">{{ testimonial.company_name }}</span>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </a>
