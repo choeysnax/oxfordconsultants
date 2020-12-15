@@ -90,6 +90,10 @@ class Section(Orderable):
             FieldPanel('upload_instruction_title'),
             FieldPanel('upload_instruction_body'),
         ], "Upload section", classname="collapsible collapsed"),
+        MultiFieldPanel([
+            FieldPanel('show_people'),
+            FieldPanel('people'),
+        ], "People", classname="collapsible collapsed"),
     ]
 
 

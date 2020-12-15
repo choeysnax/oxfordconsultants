@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 import os
+from urllib import parse
 
 import dj_database_url
 import django_heroku
@@ -116,11 +117,17 @@ WSGI_APPLICATION = 'oxfordconsultants.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+DEFAULT_DATABASE = parse.urlparse(config('DATABASE_URL'))
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': DEFAULT_DATABASE.path[1:],
+        'USER': DEFAULT_DATABASE.username,
+        'PASSWORD': DEFAULT_DATABASE.password,
+        'HOST': DEFAULT_DATABASE.hostname,
+        'PORT': DEFAULT_DATABASE.port,
+    },
 }
 
 # Password validation
