@@ -75,7 +75,6 @@ class Section(Orderable):
     page = ParentalKey('RegistrationPage', on_delete=models.CASCADE, related_name='sections')
     file = models.FileField(upload_to='files/', null=True, blank=True)
     show_people = models.BooleanField(default=False)
-    people = models.ManyToManyField('Person', blank=True, null=True)
     upload = models.BooleanField(default=False)
     upload_instruction_title = models.CharField(max_length=140, blank=True)
     upload_instruction_body = models.TextField(blank=True)
@@ -92,9 +91,13 @@ class Section(Orderable):
         ], "Upload section", classname="collapsible collapsed"),
         MultiFieldPanel([
             FieldPanel('show_people'),
-            FieldPanel('people'),
         ], "People", classname="collapsible collapsed"),
     ]
+
+    def save(self, *args, **kwargs):
+        self.people = None
+        # if self._state.adding:
+        super().save(*args, **kwargs)
 
 
 @register_snippet
@@ -102,6 +105,7 @@ class Person(models.Model):
     name = models.CharField(max_length=140, blank=True)
     title = models.CharField(max_length=140, blank=True)
     description = RichTextField(null=True, blank=True)
+    section = models.ForeignKey(Section, on_delete=models.SET_NULL, null=True, blank=True)
     photo = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
