@@ -116,6 +116,9 @@ class Person(models.Model):
         ImageChooserPanel('photo'),
     ]
 
+    def __str__(self):
+        return self.name
+
 
 class RegistrationPage(Page, ClusterableModel):
     introduction_text = RichTextField(blank=True, null=True)
