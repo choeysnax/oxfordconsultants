@@ -94,6 +94,10 @@ class Section(Orderable):
         ], "People", classname="collapsible collapsed"),
     ]
 
+    @property
+    def people(self):
+        return  self.person_set.all()
+
     def __str__(self):
         return self.title
 
@@ -109,6 +113,8 @@ class Person(models.Model):
     title = models.CharField(max_length=140, blank=True)
     description = RichTextField(null=True, blank=True)
     section = models.ManyToManyField(Section, blank=True)
+    cv_url = models.URLField(blank=True)
+
     photo = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -120,6 +126,7 @@ class Person(models.Model):
         FieldPanel('name'),
         FieldPanel('title'),
         FieldPanel('description'),
+        FieldPanel('cv_url'),
         FieldPanel('section'),
         ImageChooserPanel('photo'),
     ]
