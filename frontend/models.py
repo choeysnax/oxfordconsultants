@@ -94,6 +94,9 @@ class Section(Orderable):
         ], "People", classname="collapsible collapsed"),
     ]
 
+    def __str__(self):
+        return self.title
+
     def save(self, *args, **kwargs):
         self.people = None
         # if self._state.adding:
@@ -105,7 +108,7 @@ class Person(models.Model):
     name = models.CharField(max_length=140, blank=True)
     title = models.CharField(max_length=140, blank=True)
     description = RichTextField(null=True, blank=True)
-    section = models.ForeignKey(Section, on_delete=models.SET_NULL, null=True, blank=True)
+    section = models.ManyToManyField(Section, blank=True)
     photo = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -117,6 +120,7 @@ class Person(models.Model):
         FieldPanel('name'),
         FieldPanel('title'),
         FieldPanel('description'),
+        FieldPanel('section'),
         ImageChooserPanel('photo'),
     ]
 
