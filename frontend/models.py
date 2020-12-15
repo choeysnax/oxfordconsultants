@@ -10,6 +10,7 @@ from wagtail.admin.edit_handlers import (
 )
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page, Orderable
+from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
 
 from .blocks import BaseStreamBlock
@@ -73,6 +74,8 @@ class Section(Orderable):
     body = RichTextField(null=True, blank=True)
     page = ParentalKey('RegistrationPage', on_delete=models.CASCADE, related_name='sections')
     file = models.FileField(upload_to='files/', null=True, blank=True)
+    show_people = models.BooleanField(default=False)
+    people = models.ManyToManyField('Person', blank=True, null=True)
     upload = models.BooleanField(default=False)
     upload_instruction_title = models.CharField(max_length=140, blank=True)
     upload_instruction_body = models.TextField(blank=True)
@@ -87,6 +90,26 @@ class Section(Orderable):
             FieldPanel('upload_instruction_title'),
             FieldPanel('upload_instruction_body'),
         ], "Upload section", classname="collapsible collapsed"),
+    ]
+
+
+@register_snippet
+class Person(models.Model):
+    name = models.CharField(max_length=140, blank=True)
+    title = models.CharField(max_length=140, blank=True)
+    description = RichTextField(null=True, blank=True)
+    photo = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
+    panels = [
+        FieldPanel('name'),
+        FieldPanel('title'),
+        FieldPanel('description'),
+        ImageChooserPanel('photo'),
     ]
 
 
