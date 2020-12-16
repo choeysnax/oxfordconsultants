@@ -100,14 +100,12 @@
                                             <br>
                                             <h6 class="w3-margin-top">{{ person.name }}</h6>
                                             {% if person.cv_url %}
-                                            <a href="{{ person.cv_url }}">Profile</a>
+                                                <a href="{{ person.cv_url }}">Profile</a>
                                             {% endif %}
                                         </div>
                                     </div>
                                 {% endfor %}
                             </div>
-
-
                         {% endif %}
                         <br>
                     </div>
@@ -178,6 +176,23 @@
                                         </div>
                                         <v-btn type="submit" color="primary" rounded>Upload</v-btn>
                                     </form>
+                                {% endif %}
+                                {% if section.show_people %}
+                                    <div class="columns is-multiline is-centered">
+                                        {% for person in section.people %}
+                                            <div class="column is-4">
+                                                <div class="w3-padding-small w3-center">
+                                                    {% image person.photo original as image %}
+                                                    <img src="{{ image.url }}" class="w3-border w3-border-black">
+                                                    <br>
+                                                    <h6 class="w3-margin-top">{{ person.name }}</h6>
+                                                    {% if person.cv_url %}
+                                                        <a href="{{ person.cv_url }}">Profile</a>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
                                 {% endif %}
                                 <br>
                             </v-expansion-panel-content>
