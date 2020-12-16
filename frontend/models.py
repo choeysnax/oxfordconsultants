@@ -102,8 +102,6 @@ class Section(Orderable):
         return self.title
 
     def save(self, *args, **kwargs):
-        self.people = None
-        # if self._state.adding:
         super().save(*args, **kwargs)
 
 
