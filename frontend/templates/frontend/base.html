@@ -257,6 +257,8 @@
             return {
                 drawer: false,
                 languages: ['English', 'French'],
+                showProfileDialog: false,
+                profile: null,
                 items: [
                     {
                         src: '{% static 'images/banner-image-1.jpg' %}',
@@ -283,6 +285,10 @@
             goTo(url) {
                 window.location.href = url;
             },
+            showProfile(name) {
+                this.showProfileDialog = true
+                this.profile = name
+            }
         }
     });
     $('select#language-select option[value="en"]').attr("selected", window.location.href.includes('/en/'));

@@ -98,13 +98,50 @@
                                             {% image person.photo original as image %}
                                             <img src="{{ image.url }}" class="w3-border w3-border-black">
                                             <br>
-                                            <h6 class="w3-margin-top">{{ person.name }}</h6>
-                                            {% if person.cv_url %}
-                                                <a href="{{ person.cv_url }}">Profile</a>
-                                            {% endif %}
+                                            <h1 class="w3-margin-top w3-margin-bottom">{{ person.name }}</h1>
+                                            <v-btn rounded flat outlined v-on:click="showProfile('{{ person.id }}')">View Profile</v-btn>
                                         </div>
                                     </div>
                                 {% endfor %}
+                                <v-dialog width="1000px" v-model="showProfileDialog">
+                                    {% for person in section.people %}
+                                        <v-card height="600px" style="overflow-y: hidden" class="pha-deep-blue" v-if="profile=={{ person.id }}">
+                                            <v-layout>
+                                                <v-flex xs0 sm5 md5 lg5>
+                                                    {% image person.photo fill-400x600 as photo %}
+                                                    <v-img
+                                                            src="{{ photo.url }}" alt="{{ person.get_full_name }}"
+                                                            lazy-src="{{ photo.url }}"
+                                                            class="grey lighten-2">
+                                                        <v-layout
+                                                                slot="placeholder"
+                                                                fill-height
+                                                                align-center
+                                                                justify-center
+                                                                ma-0>
+                                                            <v-progress-circular indeterminate
+                                                                                 color="grey lighten-5"></v-progress-circular>
+                                                        </v-layout>
+                                                    </v-img>
+                                                </v-flex>
+                                                <v-flex xs12 sm7 md7 lg7 class="w3-padding">
+                                                    <v-card-title primary-title>
+                                                        <div>
+                                                            <h3 class="is-bold w3-xxlarge w3-margin-top">{{ person.name }}</h3>
+                                                        </div>
+                                                    </v-card-title>
+                                                    <v-card-text style="height: 460px;overflow-y: auto">
+                                                        <div class="w3-large">
+                                                            {{ person.description|richtext }}
+                                                        </div>
+                                                        <br>
+                                                    </v-card-text>
+                                                </v-flex>
+                                            </v-layout>
+                                        </v-card>
+                                    {% endfor %}
+                                </v-dialog>
+
                             </div>
                         {% endif %}
                         <br>
@@ -185,10 +222,49 @@
                                                     {% image person.photo original as image %}
                                                     <img src="{{ image.url }}" class="w3-border w3-border-black">
                                                     <br>
-                                                    <h6 class="w3-margin-top">{{ person.name }}</h6>
-                                                    {% if person.cv_url %}
-                                                        <a href="{{ person.cv_url }}">Profile</a>
-                                                    {% endif %}
+                                                    {#                                                    <a class="w3-margin-top" @click="showProfile('{{ person.name }}')">{{ person.name }}</a>#}
+                                                    <v-layout row justify-center>
+                                                        <v-dialog width="1000px" v-model="showProfileDialog">
+                                                            <v-card height="600px" style="overflow-y: hidden">
+                                                                <v-layout>
+                                                                    <v-flex xs0 sm5 md5 lg5>
+                                                                        {% image person.photo fill-400x600 as photo %}
+                                                                        <v-img
+                                                                                src="{{ photo.url }}" alt="{{ person.get_full_name }}"
+                                                                                lazy-src="{{ photo.url }}"
+                                                                                class="grey lighten-2">
+                                                                            <v-layout
+                                                                                    slot="placeholder"
+                                                                                    fill-height
+                                                                                    align-center
+                                                                                    justify-center
+                                                                                    ma-0>
+                                                                                <v-progress-circular indeterminate
+                                                                                                     color="grey lighten-5"></v-progress-circular>
+                                                                            </v-layout>
+                                                                        </v-img>
+                                                                    </v-flex>
+                                                                    <v-flex xs12 sm7 md7 lg7 class="w3-padding">
+                                                                        <v-card-title primary-title>
+
+                                                                            <div>
+                                                                                <h3 class="is-bold w3-xxlarge">{{ person.name }}</h3>
+                                                                                {% if person.job_title %}
+                                                                                    <h4 class="is-bold w3-xlarge">{{ person.job_title }}</h4>
+                                                                                {% endif %}
+                                                                            </div>
+                                                                        </v-card-title>
+                                                                        <v-card-text style="height: 460px;overflow-y: auto">
+                                                                            <p class="w3-large">
+                                                                                {{ person.description|linebreaksbr }}
+                                                                            </p>
+                                                                            <br>
+                                                                        </v-card-text>
+                                                                    </v-flex>
+                                                                </v-layout>
+                                                            </v-card>
+                                                        </v-dialog>
+                                                    </v-layout>
                                                 </div>
                                             </div>
                                         {% endfor %}
