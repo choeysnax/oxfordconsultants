@@ -14,9 +14,16 @@ class TestimonialAdmin(admin.ModelAdmin):
     pass
 
 
+def question_reset(modeladmin, request, queryset):
+    queryset.update(voting_stopped=False, next_resolution_launched=False)
+    Vote.objects.all().delete()
+
+
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-    pass
+    actions = [
+        'question_reset'
+    ]
 
 
 @admin.register(Vote)
