@@ -1,5 +1,5 @@
 {% extends 'frontend/base.html' %}
-{% load static %}
+{% load static humanize %}
 {% block page_title %}
     {{ service.title }}
 {% endblock %}
@@ -29,11 +29,11 @@
                             <tbody>
                             <tr>
                                 <td>{{ winner.text}}</td>
-                                <td>{{ winner_votes }}</td>
+                                <td>{{ winner_votes|intcomma }}</td>
                             </tr>
                             <tr>
                                 <td>{{ loser.text }}</td>
-                                <td>{{ loser_votes }}</td>
+                                <td>{{ loser_votes|intcomma }}</td>
                             </tr>
                             </tbody>
                         </table>
