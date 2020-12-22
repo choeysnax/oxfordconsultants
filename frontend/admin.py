@@ -15,7 +15,7 @@ class TestimonialAdmin(admin.ModelAdmin):
 
 
 def reset_questions(modeladmin, request, queryset):
-    queryset.update(voting_stopped=False, next_resolution_launched=False)
+    queryset.update(voting_stopped=False, next_resolution_launched=False, consensus=None)
     Vote.objects.all().delete()
 
 

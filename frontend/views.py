@@ -275,7 +275,7 @@ def voting_view_results(request, ordering):
 
 
 def voting_view_summary(request):
-    questions = Question.objects.all()
+    questions = Question.objects.all().order_by('slug')
     context = {
         'questions': questions,
     }
