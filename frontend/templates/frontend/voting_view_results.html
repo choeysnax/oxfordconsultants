@@ -71,7 +71,7 @@
     </section>
 {% endblock %}
 {% block extra_body %}
-    {% if question.voting_stopped %}
+    {% if not question.voting_stopped %}
         <script>
             setTimeout(()=>{
                 window.location.href = window.location.href
