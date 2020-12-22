@@ -189,7 +189,7 @@ class Question(models.Model):
     next_resolution_launched = models.BooleanField(default=False)
     slug = models.SlugField(null=True)
     possible_answers = models.ManyToManyField(PossibleAnswer)
-    consensus = models.ForeignKey(PossibleAnswer, on_delete=models.CASCADE)
+    consensus = models.ForeignKey(PossibleAnswer, on_delete=models.CASCADE, related_name='+', null=True, blank=True)
     stats = JSONField(default=dict)
 
     def __str__(self):
