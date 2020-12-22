@@ -21,9 +21,7 @@ def reset_questions(modeladmin, request, queryset):
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-    actions = [
-        reset_questions
-    ]
+    actions = [reset_questions]
 
 
 @admin.register(Vote)
