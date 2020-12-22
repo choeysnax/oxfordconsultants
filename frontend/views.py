@@ -199,7 +199,7 @@ def voting_view(request, ordering):
     question = Question.objects.get(ordering=ordering)
     context = {
         'question': question,
-        'token': request.GET.get('token')
+        'token': request.GET.get('token').lower()
     }
     return render(request, 'frontend/voting_view.html', context)
 
@@ -207,7 +207,7 @@ def voting_view(request, ordering):
 def voting_view_answer(request, ordering):
     question = Question.objects.get(ordering=ordering)
     answer = PossibleAnswer.objects.get(id=int(request.GET.get('answer')))
-    person = PersonToken.objects.get(token=request.GET.get('token'))
+    person = PersonToken.objects.get(token__iexact=str(request.GET.get('token')).strip())
 
     try:
         Vote.objects.get(question=question, person=person).delete()
@@ -219,7 +219,7 @@ def voting_view_answer(request, ordering):
 
 def voting_view_results(request, ordering):
     question = Question.objects.get(ordering=ordering)
-    token = request.GET.get('token')
+    token = request.GET.get('token').lower()
     answers = {
 
     }
