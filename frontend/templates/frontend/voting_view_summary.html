@@ -18,9 +18,6 @@
                             <thead>
                             <tr>
                                 <th class="text-left">
-                                    Person
-                                </th>
-                                <th class="text-left">
                                     Question
                                 </th>
                                 <th class="text-left">
@@ -31,7 +28,6 @@
                             <tbody>
                             {% for vote in question.vote_set.all %}
                                 <tr>
-                                    <td>{{ vote.person.name }}</td>
                                     <td>{{ vote.question.text }}</td>
                                     <td>{{ vote.answer.text }}</td>
                                 </tr>
