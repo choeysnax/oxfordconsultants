@@ -21,9 +21,9 @@
                     <table class="table is-fullwidth is-bordered">
                         <thead>
                         <tr>
-                            <th class="text-left">
-                                Person
-                            </th>
+                            {#                            <th class="text-left">#}
+                            {#                                Person#}
+                            {#                            </th>#}
                             <th class="text-left">
                                 Question
                             </th>
@@ -35,7 +35,7 @@
                         <tbody>
                         {% for vote in question.vote_set.all %}
                             <tr>
-                                <td>{{ vote.person.name }}</td>
+                                {#                                <td>{{ vote.person.name }}</td>#}
                                 <td>{{ vote.question.text }}</td>
                                 <td>{{ vote.answer.text }}</td>
                             </tr>
@@ -70,9 +70,11 @@
     </section>
 {% endblock %}
 {% block extra_body %}
-    <script>
-        setTimeout(()=>{
-            window.location.href = window.location.href
-        }, 3000)
-    </script>
+    {% if question.voting_stopped %}
+        <script>
+            setTimeout(()=>{
+                window.location.href = window.location.href
+            }, 3000)
+        </script>
+    {% endif %}
 {% endblock %}
