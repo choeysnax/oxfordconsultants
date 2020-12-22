@@ -25,21 +25,22 @@
                             {#                                Person#}
                             {#                            </th>#}
                             <th class="text-left">
-                                Question
+                                Vote
                             </th>
                             <th class="text-left">
-                                Answer
+                                Number of votes
                             </th>
                         </tr>
                         </thead>
                         <tbody>
-                        {% for vote in question.vote_set.all %}
                             <tr>
-                                {#                                <td>{{ vote.person.name }}</td>#}
-                                <td>{{ vote.question.text }}</td>
-                                <td>{{ vote.answer.text }}</td>
+                                <td>In favour</td>
+                                <td>{{ winner_votes }}</td>
                             </tr>
-                        {% endfor %}
+                            <tr>
+                                <td>Against</td>
+                                <td>{{ loser_votes }}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
