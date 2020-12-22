@@ -193,7 +193,7 @@ class Question(models.Model):
     stats = JSONField(default=dict)
 
     def __str__(self):
-        return self.text
+        return f"{self.slug}. {self.text}"
 
 
 class Vote(models.Model):
