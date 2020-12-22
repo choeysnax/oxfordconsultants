@@ -41,9 +41,8 @@
                     <br>
 
                     <h1 class="w3-xxlarge w3-text-green">
-                        Consensus:  {{ winner.consensus|lower }} by {{ winner_votes }} votes
+                        Consensus:  {{ winner.consensus|lower }}
                     </h1>
-
                     <br>
                     {% if person.is_chairman and next %}
                         <a href="{% url 'frontend:voting_view_launch' next %}?token={{ person.token }}" class="button is-rounded w3-black is-medium w3-border" type="submit">

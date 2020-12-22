@@ -249,7 +249,7 @@ def voting_view_results(request, ordering):
     context = {
         'person': person,
         'question': question,
-        'next': question.ordering + 1,
+        'next': question.ordering + 1 if Question.objects.filter(ordering=question.ordering + 1).exists() else False,
         'answers':  answers,
         'winner':  PossibleAnswer.objects.get(id=winner),
         'winner_votes': answers[winner],
