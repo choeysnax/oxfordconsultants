@@ -1,0 +1,78 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% block page_title %}
+    {{ service.title }}
+{% endblock %}
+{% block content %}
+    <section class="hero is-medium">
+        <div class="hero-body">
+            <div class="container w3-padding-64 w3-center" style="max-width: 800px;margin: auto">
+                <h1 class="w3-xxlarge">
+                    Resolution {{ question.ordering }}:
+                    {{ question.text }}
+                </h1>
+                <br>
+                <br>
+                <h1 class="w3-xxlarge">
+                    Voting Results
+                </h1>
+                <br>
+                <div class="table-container">
+                    <table class="table is-fullwidth is-bordered">
+                        <thead>
+                        <tr>
+                            <th class="text-left">
+                                Person
+                            </th>
+                            <th class="text-left">
+                                Question
+                            </th>
+                            <th class="text-left">
+                                Answer
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for vote in question.vote_set.all %}
+                            <tr>
+                                <td>{{ vote.person.name }}</td>
+                                <td>{{ vote.question.text }}</td>
+                                <td>{{ vote.answer.text }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+
+                {% if question.voting_stopped %}
+                    <h1 class="w3-xxlarge w3-text-green">
+                        Winner:  {{ winner.consensus }}
+                    </h1>
+
+                    <br>
+                    {% if next %}
+                        <a href="{% url 'frontend:voting_view' next %}?token={{ token }}" class="button is-rounded w3-black is-medium w3-border" type="submit">
+                            <h6>Next resolution</h6>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'frontend:summary' %}" class="button is-rounded w3-black is-medium w3-border" type="submit">
+                            <h6>Summary of all results</h6>
+                        </a>
+                    {% endif %}
+                {% else %}
+                    <div class="w3-padding-large w3-green w3-round-large w3-large w3-padding-24">
+                        This page will automatically refresh with results until voting has ended
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block extra_body %}
+    <script>
+        setTimeout(()=>{
+            window.location.href = window.location.href
+        }, 3000)
+    </script>
+{% endblock %}

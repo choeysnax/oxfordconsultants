@@ -1,0 +1,47 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% block page_title %}
+    {{ service.title }}
+{% endblock %}
+{% block content %}
+    <section class="hero is-medium">
+        <div class="hero-body">
+            <div class="container w3-padding-64 w3-center" style="max-width: 800px;margin: auto">
+                {% for question in questions %}
+                    <h1 class="w3-xxlarge">
+                        Resolution {{ question.ordering }}:
+                        {{ question.text }}
+                    </h1>
+                    <br>
+                    <div class="table-container">
+                        <table class="table is-fullwidth is-bordered">
+                            <thead>
+                            <tr>
+                                <th class="text-left">
+                                    Person
+                                </th>
+                                <th class="text-left">
+                                    Question
+                                </th>
+                                <th class="text-left">
+                                    Answer
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for vote in question.vote_set.all %}
+                                <tr>
+                                    <td>{{ vote.person.name }}</td>
+                                    <td>{{ vote.question.text }}</td>
+                                    <td>{{ vote.answer.text }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

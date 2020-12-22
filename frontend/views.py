@@ -1,3 +1,5 @@
+import operator
+
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
@@ -5,7 +7,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from frontend.forms import ContactForm
-from frontend.models import Insight, Testimonial, Upload, UploadForm
+from frontend.models import Insight, Testimonial, Upload, UploadForm, Question, Vote, PossibleAnswer, PersonToken
 
 services_list = [
     {
@@ -186,6 +188,62 @@ def testimonials_view(request):
         'testimonials': Testimonial.objects.all()
     }
     return render(request, 'frontend/testimonials.html', context)
+
+
+def voting_index(request):
+    context = {}
+    return render(request, 'frontend/voting_index.html', context)
+
+
+def voting_view(request, ordering):
+    question = Question.objects.get(ordering=ordering)
+    context = {
+        'question': question,
+        'token': request.GET.get('token')
+    }
+    return render(request, 'frontend/voting_view.html', context)
+
+
+def voting_view_answer(request, ordering):
+    question = Question.objects.get(ordering=ordering)
+    answer = PossibleAnswer.objects.get(id=int(request.GET.get('answer')))
+    person = PersonToken.objects.get(token=request.GET.get('token'))
+
+    try:
+        Vote.objects.get(question=question, person=person).delete()
+    except:
+        pass
+    Vote.objects.get_or_create(question=question, person=person, answer=answer)
+    return redirect(reverse('frontend:voting_view_results', args=(question.ordering,))+f'?token={person.token}')
+
+
+def voting_view_results(request, ordering):
+    question = Question.objects.get(ordering=ordering)
+    token = request.GET.get('token')
+    answers = {
+
+    }
+    for possible_answer in question.possible_answers.all():
+        if not answers.get(possible_answer.id):
+            answers[possible_answer.id] = 0
+        answers[possible_answer.id] += sum(Vote.objects.filter(question=question, answer=possible_answer).values('person__weight'))
+
+    context = {
+        'token': token,
+        'question': question,
+        'next': question.ordering + 1,
+        'winner':  PossibleAnswer.objects.get(id=max(answers.iteritems(), key=operator.itemgetter(1))[0])
+    }
+    return render(request, 'frontend/voting_view_results.html', context)
+
+
+
+def voting_view_summary(request):
+    questions = Question.objects.all()
+    context = {
+        'questions': questions,
+    }
+    return render(request, 'frontend/voting_view_summary.html', context)
 
 
 def upload_form_view(request):
