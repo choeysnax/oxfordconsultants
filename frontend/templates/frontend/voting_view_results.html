@@ -11,28 +11,29 @@
                     Resolution {{ question.ordering }}:
                     {{ question.text }}
                 </h1>
-                <br>
-                <br>
-                <h1 class="w3-xxlarge">
-                    Voting Results
-                </h1>
-                <br>
-                <div class="table-container">
-                    <table class="table is-fullwidth is-bordered">
-                        <thead>
-                        <tr>
-                            {#                            <th class="text-left">#}
-                            {#                                Person#}
-                            {#                            </th>#}
-                            <th class="text-left">
-                                Vote
-                            </th>
-                            <th class="text-left">
-                                Number of votes
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                {% if question.voting_stopped %}
+                    <br>
+                    <br>
+                    <h1 class="w3-xxlarge">
+                        Voting Results
+                    </h1>
+                    <br>
+                    <div class="table-container">
+                        <table class="table is-fullwidth is-bordered">
+                            <thead>
+                            <tr>
+                                {#                            <th class="text-left">#}
+                                {#                                Person#}
+                                {#                            </th>#}
+                                <th class="text-left">
+                                    Vote
+                                </th>
+                                <th class="text-left">
+                                    Number of votes
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
                             <tr>
                                 <td>In favour</td>
                                 <td>{{ winner_votes }}</td>
@@ -41,12 +42,11 @@
                                 <td>Against</td>
                                 <td>{{ loser_votes }}</td>
                             </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <br>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
 
-                {% if question.voting_stopped %}
                     <h1 class="w3-xxlarge w3-text-green">
                         Consensus:  {{ winner.consensus }} by {{ winner_votes }} votes
                     </h1>
@@ -63,7 +63,7 @@
                     {% endif %}
                 {% else %}
                     <div class="w3-padding-large w3-green w3-round-large w3-large w3-padding-24">
-                        This page will automatically refresh with results until voting has ended
+                        Voting in progress. This page will automatically refresh with results when voting has ended
                     </div>
                 {% endif %}
             </div>
