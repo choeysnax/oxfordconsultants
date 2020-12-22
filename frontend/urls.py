@@ -10,6 +10,7 @@ urlspatterns_remains = [
     path('voting/', views.voting_index, name='voting_index'),
     path('voting/summary/', views.voting_view_summary, name='voting_view_summary'),
     path('voting/<int:ordering>/', views.voting_view, name='voting_view'),
+    path('voting/<int:ordering>/launch/', views.voting_view_launch, name='voting_view_launch'),
     path('voting/<int:ordering>/answer/', views.voting_view_answer, name='voting_view_answer'),
     path('voting/<int:ordering>/results/', views.voting_view_results, name='voting_view_results'),
     path('testimonials', views.testimonials_view, name='testimonials'),

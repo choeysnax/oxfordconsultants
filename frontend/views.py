@@ -197,9 +197,12 @@ def voting_index(request):
 
 def voting_view(request, ordering):
     question = Question.objects.get(ordering=ordering)
+    person = PersonToken.objects.get(token=request.GET.get('token').lower())
+    if person.is_chairman and ordering == 1:
+        return redirect(reverse('frontend:voting_view_results', args=(ordering, ))+f'?token={person.token}')
     context = {
         'question': question,
-        'token': request.GET.get('token').lower()
+        'person': person
     }
     return render(request, 'frontend/voting_view.html', context)
 
@@ -217,9 +220,21 @@ def voting_view_answer(request, ordering):
     return redirect(reverse('frontend:voting_view_results', args=(question.ordering,))+f'?token={person.token}')
 
 
+def voting_view_launch(request, ordering):
+    old_resolution = Question.objects.get(ordering=ordering-1)
+    old_resolution.next_resolution_launched = True
+    old_resolution.save()
+
+    question = Question.objects.get(ordering=ordering)
+    person = PersonToken.objects.get(token__iexact=str(request.GET.get('token')).strip())
+
+    return redirect(reverse('frontend:voting_view_results', args=(question.ordering,))+f'?token={person.token}')
+
+
 def voting_view_results(request, ordering):
     question = Question.objects.get(ordering=ordering)
     token = request.GET.get('token').lower()
+    person = PersonToken.objects.get(token=token)
     answers = {
 
     }
@@ -230,17 +245,18 @@ def voting_view_results(request, ordering):
     winner = max(answers.items(), key=operator.itemgetter(1))[0]
     a = list(answers.keys())
     a.remove(winner)
+    loser = a[0]
     context = {
-        'token': token,
+        'person': person,
         'question': question,
         'next': question.ordering + 1,
-        'winner':  PossibleAnswer.objects.get(id=winner),
         'answers':  answers,
+        'winner':  PossibleAnswer.objects.get(id=winner),
         'winner_votes': answers[winner],
-        'loser_votes': answers[a[0]]
+        'loser':  PossibleAnswer.objects.get(id=loser),
+        'loser_votes': answers[loser]
     }
     return render(request, 'frontend/voting_view_results.html', context)
-
 
 
 def voting_view_summary(request):

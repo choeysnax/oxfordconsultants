@@ -11,11 +11,13 @@
                     Resolution {{ question.ordering }}:
                     {{ question.text }}
                 </h1>
-                {% for possible_answer in question.possible_answers.all %}
-                    <a href="{% url 'frontend:voting_view_answer' question.ordering %}?token={{ token }}&answer={{ possible_answer.id }}" class="button is-rounded w3-border-black is-large w3-border" type="submit">
-                        <h6>{{ possible_answer.text }}</h6>
-                    </a>
-                {% endfor %}
+                {% if not person.is_chairman %}
+                    {% for possible_answer in question.possible_answers.all %}
+                        <a style="margin: 5px;" href="{% url 'frontend:voting_view_answer' question.ordering %}?token={{ person.token }}&answer={{ possible_answer.id }}" class="button is-rounded w3-border-black is-large w3-border" type="submit">
+                            <h6>{{ possible_answer.text }}</h6>
+                        </a>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </section>

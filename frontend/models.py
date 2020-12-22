@@ -163,6 +163,7 @@ class PersonToken(models.Model):
     token = models.CharField(max_length=50)
     name = models.CharField(max_length=150)
     weight = models.IntegerField(default=0)
+    is_chairman = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -184,6 +185,7 @@ class Question(models.Model):
     ordering = models.IntegerField(default=0)
     text = models.TextField()
     voting_stopped = models.BooleanField(default=False)
+    next_resolution_launched = models.BooleanField(default=False)
     slug = models.SlugField(null=True)
     possible_answers = models.ManyToManyField(PossibleAnswer)
 

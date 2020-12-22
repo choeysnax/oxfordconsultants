@@ -14,17 +14,10 @@
                 <br>
                 {% if question.voting_stopped %}
                     <br>
-                    <h1 class="w3-xxlarge">
-                        Voting Results
-                    </h1>
-                    <br>
                     <div class="table-container">
                         <table class="table is-fullwidth is-bordered">
                             <thead>
                             <tr>
-                                {#                            <th class="text-left">#}
-                                {#                                Person#}
-                                {#                            </th>#}
                                 <th class="text-left">
                                     Vote
                                 </th>
@@ -35,11 +28,11 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td>In favour</td>
+                                <td>{{ winner.text}}</td>
                                 <td>{{ winner_votes }}</td>
                             </tr>
                             <tr>
-                                <td>Against</td>
+                                <td>{{ loser.text }}</td>
                                 <td>{{ loser_votes }}</td>
                             </tr>
                             </tbody>
@@ -48,17 +41,13 @@
                     <br>
 
                     <h1 class="w3-xxlarge w3-text-green">
-                        Consensus:  {{ winner.consensus }} by {{ winner_votes }} votes
+                        Consensus:  {{ winner.consensus|lower }} by {{ winner_votes }} votes
                     </h1>
 
                     <br>
-                    {% if next %}
-                        <a href="{% url 'frontend:voting_view' next %}?token={{ token }}" class="button is-rounded w3-black is-medium w3-border" type="submit">
-                            <h6>Next resolution</h6>
-                        </a>
-                    {% else %}
-                        <a href="{% url 'frontend:summary' %}" class="button is-rounded w3-black is-medium w3-border" type="submit">
-                            <h6>Summary of all results</h6>
+                    {% if person.is_chairman and next %}
+                        <a href="{% url 'frontend:voting_view_launch' next %}?token={{ person.token }}" class="button is-rounded w3-black is-medium w3-border" type="submit">
+                            <h6>Launch voting on next resolution</h6>
                         </a>
                     {% endif %}
                 {% else %}
@@ -71,7 +60,23 @@
     </section>
 {% endblock %}
 {% block extra_body %}
-    {% if not question.voting_stopped %}
+    {% if question.voting_stopped and not person.is_chairman %}
+        {% if question.next_resolution_launched %}
+            <script>
+                setTimeout(()=>{
+                    window.location.href = '{% url 'frontend:voting_view' next %}?token={{ person.token }}'
+                }, 10000)
+            </script>
+        {% else %}
+            <script>
+                setTimeout(()=>{
+                    window.location.href = window.location.href
+                }, 10000)
+            </script>
+        {% endif %}
+
+    {% elif question.voting_stopped and person.is_chairman %}
+    {% else %}
         <script>
             setTimeout(()=>{
                 window.location.href = window.location.href
