@@ -224,15 +224,15 @@ def voting_view_results(request, ordering):
 
     }
     for possible_answer in question.possible_answers.all():
-        if not answers.get(possible_answer.id):
+        if not answers.get(possible_answer.id, None):
             answers[possible_answer.id] = 0
-        answers[possible_answer.id] += sum(Vote.objects.filter(question=question, answer=possible_answer).values('person__weight'))
+        answers[possible_answer.id] += sum(Vote.objects.filter(question=question, answer=possible_answer).values_list('person__weight', flat=True))
 
     context = {
         'token': token,
         'question': question,
         'next': question.ordering + 1,
-        'winner':  PossibleAnswer.objects.get(id=max(answers.iteritems(), key=operator.itemgetter(1))[0])
+        'winner':  PossibleAnswer.objects.get(id=max(answers.items(), key=operator.itemgetter(1))[0])
     }
     return render(request, 'frontend/voting_view_results.html', context)
 
