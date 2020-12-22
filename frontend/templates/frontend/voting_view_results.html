@@ -48,6 +48,10 @@
                         <a href="{% url 'frontend:voting_view_launch' next %}?token={{ person.token }}" class="button is-rounded w3-black is-medium w3-border" type="submit">
                             <h6>Launch voting on next resolution</h6>
                         </a>
+                    {% elif person.is_chairman and not next %}
+                        <a href="{% url 'frontend:voting_view_summary' %}?token={{ person.token }}" class="button is-rounded w3-black is-medium w3-border" type="submit">
+                            <h6>Voting summary</h6>
+                        </a>
                     {% endif %}
                 {% else %}
                     <div class="w3-padding-large w3-green w3-round-large w3-large w3-padding-24">

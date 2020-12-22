@@ -7,36 +7,40 @@
     <section class="hero is-medium">
         <div class="hero-body">
             <div class="container w3-padding-64 w3-center" style="max-width: 800px;margin: auto">
-                {% for question in questions %}
-                    <h1 class="w3-xxlarge">
-                        Resolution {{ question.ordering }}:
-                        {{ question.text }}
-                    </h1>
-                    <br>
-                    <div class="table-container">
-                        <table class="table is-fullwidth is-bordered">
-                            <thead>
+                <h1 class="w3-xlarge">
+                    Summary
+                </h1>
+                <div class="table-container">
+                    <table class="table is-fullwidth is-bordered">
+                        <thead>
+                        <tr>
+
+                            <th class="text-left">
+                                Number
+                            </th>
+                            <th class="text-left">
+                                Resolution
+                            </th>
+                            <th class="text-left">
+                                Consensus
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for question in questions %}
                             <tr>
-                                <th class="text-left">
-                                    Question
-                                </th>
-                                <th class="text-left">
-                                    Answer
-                                </th>
+                                <td>{{question.slug}}</td>
+                                <td>{{ question.text}}</td>
+                                <td>
+                                    {% if question.consensus %}
+                                        {{ question.consensus.consensus }}
+                                    {% endif %}
+                                </td>
                             </tr>
-                            </thead>
-                            <tbody>
-                            {% for vote in question.vote_set.all %}
-                                <tr>
-                                    <td>{{ vote.question.text }}</td>
-                                    <td>{{ vote.answer.text }}</td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                    <br>
-                {% endfor %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>

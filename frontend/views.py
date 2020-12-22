@@ -246,14 +246,29 @@ def voting_view_results(request, ordering):
     a = list(answers.keys())
     a.remove(winner)
     loser = a[0]
+    w = PossibleAnswer.objects.get(id=winner)
+    l = PossibleAnswer.objects.get(id=loser)
+    question.consensus = w
+    question.stats = {
+        'w': {
+            'consensus': w.consensus,
+            'number': answers[winner]
+        },
+        'l': {
+            'consensus': l.consensus,
+            'number': answers[loser]
+        }
+    }
+    question.save()
+
     context = {
         'person': person,
         'question': question,
         'next': question.ordering + 1 if Question.objects.filter(ordering=question.ordering + 1).exists() else False,
         'answers':  answers,
-        'winner':  PossibleAnswer.objects.get(id=winner),
+        'winner':  w,
         'winner_votes': answers[winner],
-        'loser':  PossibleAnswer.objects.get(id=loser),
+        'loser':  l,
         'loser_votes': answers[loser]
     }
     return render(request, 'frontend/voting_view_results.html', context)

@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.postgres.fields import JSONField
 from django.db import models
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
@@ -188,6 +189,8 @@ class Question(models.Model):
     next_resolution_launched = models.BooleanField(default=False)
     slug = models.SlugField(null=True)
     possible_answers = models.ManyToManyField(PossibleAnswer)
+    consensus = models.ForeignKey(PossibleAnswer, on_delete=models.CASCADE)
+    stats = JSONField(default=dict)
 
     def __str__(self):
         return self.text
