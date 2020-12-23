@@ -165,6 +165,7 @@ class PersonToken(models.Model):
     name = models.CharField(max_length=150)
     weight = models.IntegerField(default=0)
     is_chairman = models.BooleanField(default=False)
+    questions_to_skip = models.ManyToManyField('Question', blank=True)
 
     def __str__(self):
         return self.name
