@@ -28,7 +28,7 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td>{{ winner.text}}</td>
+                                <td>{{ winner.text }}</td>
                                 <td>{{ winner_votes|intcomma }}</td>
                             </tr>
                             <tr>
@@ -41,15 +41,17 @@
                     <br>
 
                     <h1 class="w3-xxlarge w3-text-green">
-                        Consensus:  {{ winner.consensus|lower }}
+                        Consensus: {{ winner.consensus|lower }}
                     </h1>
                     <br>
                     {% if person.is_chairman and next %}
-                        <a href="{% url 'frontend:voting_view_launch' next %}?token={{ person.token }}" class="button is-rounded w3-black is-medium w3-border" type="submit">
+                        <a href="{% url 'frontend:voting_view_launch' next %}?token={{ person.token }}"
+                           class="button is-rounded w3-black is-medium w3-border" type="submit">
                             <h6>Launch voting on next resolution</h6>
                         </a>
                     {% elif person.is_chairman and not next %}
-                        <a href="{% url 'frontend:voting_view_summary' %}?token={{ person.token }}" class="button is-rounded w3-black is-medium w3-border" type="submit">
+                        <a href="{% url 'frontend:voting_view_summary' %}?token={{ person.token }}"
+                           class="button is-rounded w3-black is-medium w3-border" type="submit">
                             <h6>Voting summary</h6>
                         </a>
                     {% endif %}
@@ -66,13 +68,19 @@
     {% if question.voting_stopped and not person.is_chairman %}
         {% if question.next_resolution_launched %}
             <script>
-                setTimeout(()=>{
-                    window.location.href = '{% url 'frontend:voting_view' next %}?token={{ person.token }}'
-                }, 1)
+                {% if next is False%}
+                    setTimeout(() => {
+                        window.location.href = '{% url 'frontend:voting_view_summary'  %}'
+                    }, 1)
+                {% else %}
+                    setTimeout(() => {
+                        window.location.href = '{% url 'frontend:voting_view' next %}?token={{ person.token }}'
+                    }, 1)
+                {% endif %}
             </script>
         {% else %}
             <script>
-                setTimeout(()=>{
+                setTimeout(() => {
                     window.location.href = window.location.href
                 }, 10000)
             </script>
@@ -81,7 +89,7 @@
     {% elif question.voting_stopped and person.is_chairman %}
     {% else %}
         <script>
-            setTimeout(()=>{
+            setTimeout(() => {
                 window.location.href = window.location.href
             }, 10000)
         </script>
