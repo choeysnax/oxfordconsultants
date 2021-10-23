@@ -68,7 +68,7 @@
             <script>
                 setTimeout(()=>{
                     window.location.href = '{% url 'frontend:voting_view' next %}?token={{ person.token }}'
-                }, 10000)
+                }, 1)
             </script>
         {% else %}
             <script>
