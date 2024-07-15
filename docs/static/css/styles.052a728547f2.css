@@ -1,0 +1,27 @@
+.fit-content {
+    max-width: fit-content;
+    margin: auto;
+}
+
+.navbar-item {
+    text-transform: uppercase;
+}
+
+.trans-400 {
+    transition: 400ms;
+}
+
+@media (min-width: 993px) {
+    .large-margin-right-desktop {
+        margin-right: 130px !important;
+    }
+}
+
+.w3-padding-8 {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+}
+
+div.rich-text, div.rich-text > p {
+    font-size: inherit;
+}
