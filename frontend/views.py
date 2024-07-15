@@ -168,11 +168,17 @@ def contact_view(request):
     return render(request, 'frontend/contact.html', context)
 
 
+def get_services_list():
+    for service in services_list:
+        yield service['slug']
+
+
 def services_view(request, slug):
     service = None
     for s in services_list:
         if s['slug'] == slug:
             service = s
+            break
     context = {
         'service': service
     }

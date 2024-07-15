@@ -1,0 +1,696 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+    Welcome to Oxford Consultants
+ &bull; Oxford Consultants</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.2.17/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/w3.css">
+    <link rel="stylesheet" href="/static/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="/static/images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/static/images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/static/images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/static/images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/static/images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/static/images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/static/images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/static/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="/static/images/icons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        @font-face {
+            font-family: 'Circular-Book';
+            src: url('/static/fonts/Circular/CircularStd-Book.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'CooperPenny';
+            src: url('/static/fonts/CooperPenny/copper penny dtp.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Circular-Black';
+            src: url('/static/fonts/Circular/CircularStd-Black.ttf') format('truetype');
+        }
+
+        *, div, body, p {
+            font-family: "Circular-Book", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        !important;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4, h5, h6, strong {
+            font-family: CooperPenny, "Circular-Black", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        !important;
+        }
+
+        .dl {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            display: inline-block;
+        }
+
+        .dl__square {
+            display: block;
+            width: 150px;
+            height: 150px;
+            margin: auto;
+        }
+
+        .bgoverlay {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+    </style>
+    
+    <style>
+        .bgimg {
+            background-image: url('/static/images/girls.png');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+
+</head>
+<body style="width: 100%">
+
+<div class="dl" id="loading">
+    <div class="dl__square w3-animate-right w3-animate-zoo">
+        <img src="/static/images/svg/oc.svg" alt="">
+    </div>
+</div>
+<div id="app" class="w3-hide w3-animate-opacity trans-400">
+    <v-app>
+        
+        <v-toolbar flat>
+            <v-app-bar-nav-icon @click.stop="drawer = !drawer"
+                                class="w3-hide-medium w3-hide-large w3-hide"></v-app-bar-nav-icon>
+            <a href="/">
+                <v-toolbar-title>
+                    <div class="level is-mobile ">
+                        <div class="level-item" style="margin-right: 0.1rem">
+                            <img src="/static/images/svg/oc.svg" alt="" style="height: 30px">
+                        </div>
+                        <div class="level-item">
+                            <h6 class="w3-text-black" style="margin-top: 5px"
+                                class="w3-large">Oxford Consultants</h6>
+                        </div>
+                    </div>
+                </v-toolbar-title>
+            </a>
+            <v-spacer></v-spacer>
+            <div class="w3-hide-small w3-hide-medium">
+                <v-btn text href="/" class="w3-hide-small">
+    Home
+</v-btn>
+<v-btn text href="/about">
+    About
+</v-btn>
+<v-btn text href="/testimonials">
+    Testimonials
+</v-btn>
+<v-btn text href="https://forms.gle/UkWDDHkcuz6xGci89" target="_blank">
+    Contact
+</v-btn>
+<v-btn text href="https://rhemalawgh.com/" target="_blank" rel="nofollow noreferrer" outlined
+       class="w3-border w3-border-black">
+    Rhema Law &nbsp;<v-icon small>mdi-launch</v-icon>
+</v-btn>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </v-toolbar>
+        <div class="w3-hide-large w3-border-top w3-border-black w3-padding-8 w3-container">
+            <div class="w3-center w3-content" style="overflow-x: auto;white-space: nowrap">
+                <v-btn text href="/" class="w3-hide-small">
+    Home
+</v-btn>
+<v-btn text href="/about">
+    About
+</v-btn>
+<v-btn text href="/testimonials">
+    Testimonials
+</v-btn>
+<v-btn text href="https://forms.gle/UkWDDHkcuz6xGci89" target="_blank">
+    Contact
+</v-btn>
+<v-btn text href="https://rhemalawgh.com/" target="_blank" rel="nofollow noreferrer" outlined
+       class="w3-border w3-border-black">
+    Rhema Law &nbsp;<v-icon small>mdi-launch</v-icon>
+</v-btn>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        <div class="w3-topbar w3-border-red" style="width: 100%"></div>
+        
+    <v-carousel hide-delimiters :show-arrows="false" cycle height="80vh">
+        
+            <v-carousel-item>
+                <div style='background-image: url("/static/images/banner-image-2.jpg");background-position: center;background-size: 2000px;height: 100%;width: 100%;'>
+                    <div class="bgoverlay w3-display-container" style="height: 100%;width: 100%;">
+                        <div class="w3-display-middle w3-text-white" style="width: 80%;margin: auto">
+                            <div class="w3-center">
+                                
+<div class="logooverlay">
+    <img src="/static/images/svg/oc.svg" alt="" style="height: 100px">
+    <h1 class="w3-jumbo w3-text-black">
+        OXFORD
+    </h1>
+    <h1 class="w3-text-black" style="margin-top: -30px;font-size: 35px">
+        CONSULTANTS
+    </h1>
+</div>
+
+                                <h1 class="w3-xxxlarge w3-hide-small w3-margin-bottom">
+                                    ...seamless corporate solutions
+                                    <br>
+                                </h1>
+                                <h6 class="w3-xlarge w3-hide-small w3-content">
+                                    We advise companies on issues relating to all phases of their life cycle, from
+                                    formation, to on-going issues such as their tax obligations, to end-of-life matters
+                                    such as liquidation.
+                                </h6>
+                                <h1 class="w3-xlarge w3-hide-medium w3-hide-large w3-margin-bottom">
+                                    ...seamless corporate solutions
+                                    <br>
+                                </h1>
+                                <h6 class="w3-large w3-hide-medium w3-hide-large">
+                                    We advise companies on issues relating to all phases of their life cycle, from
+                                    formation, to on-going issues such as their tax obligations, to end-of-life matters
+                                    such as liquidation.
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </v-carousel-item>
+        
+    </v-carousel>
+    <section class="is-small w3-padding-48 w3-topbar w3-border-red">
+        <div class="w3-padding-large container">
+            <h1 class="w3-xxlarge w3-center">Who We Are</h1>
+            <br>
+            <br>
+            <div class="w3-xlarge" style="max-width: 1000px;margin: auto">
+                <div class="media is-mobile">
+                    <div class="media-content large-margin-right-desktop w3-hide-medium w3-hide-small">
+                        <p class="w3-xlarge">
+                            Oxford Consultants is a young, dynamic, bi-lingual, progressive company established to offer
+                            business
+                            support, strategic advisory and consultancy services with a full spectrum of capabilities in
+                            a myriad of
+                            areas of business, namely entities registrations, company secretarial services, corporate
+                            governance,
+                            compliance, immigration, nominee services, liquidation, tax advisory and allied services,
+                            translation
+                            services (French and English), and human resources services.
+                        </p>
+                    </div>
+                    <div class="media-content w3-hide-large">
+                        <p class="w3-xlarge">
+                            Oxford Consultants is a young, dynamic, bi-lingual, progressive company established to offer
+                            business
+                            support, strategic advisory and consultancy services with a full spectrum of capabilities in
+                            a myriad of
+                            areas of business, namely entities registrations, company secretarial services, corporate
+                            governance,
+                            compliance, immigration, nominee services, liquidation, tax advisory and allied services,
+                            translation
+                            services (French and English), and human resources services.
+                        </p>
+                    </div>
+                    <div class="media-right w3-hide-small w3-center" style="margin: auto auto auto 40px">
+                        
+<div class="logooverlay">
+    <img src="/static/images/svg/oc.svg" alt="" style="height: 100px">
+    <h1 class="w3-jumbo w3-text-black">
+        OXFORD
+    </h1>
+    <h1 class="w3-text-black" style="margin-top: -30px;font-size: 35px">
+        CONSULTANTS
+    </h1>
+</div>
+
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="w3-center">
+                <v-btn href="/about" x-large rounded light>Learn more</v-btn>
+            </div>
+
+        </div>
+    </section>
+    <img src="/static/images/svg/top.svg" alt="" style="width: 100%">
+    <section class="hero is-small w3-padding-48 is-black" style="background-color: black;">
+        <div class="hero-body" style="max-width: 1200px;margin: auto">
+            <div class="columns is-mobile is-multiline is-centered">
+                <div class="column is-12">
+                    <h1 class="w3-xxlarge w3-center">Services</h1>
+                </div>
+                
+                    <div class="column is-4-desktop is-4-tablet is-12-mobile w3-padding-32">
+                        <v-card shaped flat max-width="370" outlined>
+                            <div class="w3-padding-small">
+                                <v-card-text>
+                                    <i class="fas fa-signature fa-2x"></i>
+                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Entities Registration</h1>
+                                </v-card-text>
+
+                                <v-card-actions>
+                                    <v-btn
+                                            href="/services/entities-registration"
+                                            text>
+                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
+                                    </v-btn>
+                                </v-card-actions>
+                                <br>
+                            </div>
+                        </v-card>
+                    </div>
+                
+                    <div class="column is-4-desktop is-4-tablet is-12-mobile w3-padding-32">
+                        <v-card shaped flat max-width="370" outlined>
+                            <div class="w3-padding-small">
+                                <v-card-text>
+                                    <i class="fas fa-pen-nib fa-2x"></i>
+                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Company Secretarial</h1>
+                                </v-card-text>
+
+                                <v-card-actions>
+                                    <v-btn
+                                            href="/services/company-secretarial"
+                                            text>
+                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
+                                    </v-btn>
+                                </v-card-actions>
+                                <br>
+                            </div>
+                        </v-card>
+                    </div>
+                
+                    <div class="column is-4-desktop is-4-tablet is-12-mobile w3-padding-32">
+                        <v-card shaped flat max-width="370" outlined>
+                            <div class="w3-padding-small">
+                                <v-card-text>
+                                    <i class="fas fa-coins fa-2x"></i>
+                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Tax Advisory &amp; Allied Services</h1>
+                                </v-card-text>
+
+                                <v-card-actions>
+                                    <v-btn
+                                            href="/services/tax-advisory-allied-services"
+                                            text>
+                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
+                                    </v-btn>
+                                </v-card-actions>
+                                <br>
+                            </div>
+                        </v-card>
+                    </div>
+                
+                    <div class="column is-4-desktop is-4-tablet is-12-mobile w3-padding-32">
+                        <v-card shaped flat max-width="370" outlined>
+                            <div class="w3-padding-small">
+                                <v-card-text>
+                                    <i class="fas fa-building fa-2x"></i>
+                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Corporate Governance</h1>
+                                </v-card-text>
+
+                                <v-card-actions>
+                                    <v-btn
+                                            href="/services/corporate-governance"
+                                            text>
+                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
+                                    </v-btn>
+                                </v-card-actions>
+                                <br>
+                            </div>
+                        </v-card>
+                    </div>
+                
+                    <div class="column is-4-desktop is-4-tablet is-12-mobile w3-padding-32">
+                        <v-card shaped flat max-width="370" outlined>
+                            <div class="w3-padding-small">
+                                <v-card-text>
+                                    <i class="fas fa-registered fa-2x"></i>
+                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Compliance</h1>
+                                </v-card-text>
+
+                                <v-card-actions>
+                                    <v-btn
+                                            href="/services/compliance"
+                                            text>
+                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
+                                    </v-btn>
+                                </v-card-actions>
+                                <br>
+                            </div>
+                        </v-card>
+                    </div>
+                
+                    <div class="column is-4-desktop is-4-tablet is-12-mobile w3-padding-32">
+                        <v-card shaped flat max-width="370" outlined>
+                            <div class="w3-padding-small">
+                                <v-card-text>
+                                    <i class="fas fa-plane fa-2x"></i>
+                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Immigration</h1>
+                                </v-card-text>
+
+                                <v-card-actions>
+                                    <v-btn
+                                            href="/services/immigration"
+                                            text>
+                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
+                                    </v-btn>
+                                </v-card-actions>
+                                <br>
+                            </div>
+                        </v-card>
+                    </div>
+                
+                    <div class="column is-4-desktop is-4-tablet is-12-mobile w3-padding-32">
+                        <v-card shaped flat max-width="370" outlined>
+                            <div class="w3-padding-small">
+                                <v-card-text>
+                                    <i class="fas fa-archway fa-2x"></i>
+                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Shelf companies</h1>
+                                </v-card-text>
+
+                                <v-card-actions>
+                                    <v-btn
+                                            href="/services/shelf-companies"
+                                            text>
+                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
+                                    </v-btn>
+                                </v-card-actions>
+                                <br>
+                            </div>
+                        </v-card>
+                    </div>
+                
+                    <div class="column is-4-desktop is-4-tablet is-12-mobile w3-padding-32">
+                        <v-card shaped flat max-width="370" outlined>
+                            <div class="w3-padding-small">
+                                <v-card-text>
+                                    <i class="fas fa-coins fa-2x"></i>
+                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Liquidation</h1>
+                                </v-card-text>
+
+                                <v-card-actions>
+                                    <v-btn
+                                            href="/services/liquidation"
+                                            text>
+                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
+                                    </v-btn>
+                                </v-card-actions>
+                                <br>
+                            </div>
+                        </v-card>
+                    </div>
+                
+                    <div class="column is-4-desktop is-4-tablet is-12-mobile w3-padding-32">
+                        <v-card shaped flat max-width="370" outlined>
+                            <div class="w3-padding-small">
+                                <v-card-text>
+                                    <i class="fas fa-language fa-2x"></i>
+                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Translation</h1>
+                                </v-card-text>
+
+                                <v-card-actions>
+                                    <v-btn
+                                            href="/services/translation"
+                                            text>
+                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
+                                    </v-btn>
+                                </v-card-actions>
+                                <br>
+                            </div>
+                        </v-card>
+                    </div>
+                
+                    <div class="column is-4-desktop is-4-tablet is-12-mobile w3-padding-32">
+                        <v-card shaped flat max-width="370" outlined>
+                            <div class="w3-padding-small">
+                                <v-card-text>
+                                    <i class="fas fa-anchor fa-2x"></i>
+                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Nominee Services</h1>
+                                </v-card-text>
+
+                                <v-card-actions>
+                                    <v-btn
+                                            href="/services/nominee-services"
+                                            text>
+                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
+                                    </v-btn>
+                                </v-card-actions>
+                                <br>
+                            </div>
+                        </v-card>
+                    </div>
+                
+                    <div class="column is-4-desktop is-4-tablet is-12-mobile w3-padding-32">
+                        <v-card shaped flat max-width="370" outlined>
+                            <div class="w3-padding-small">
+                                <v-card-text>
+                                    <i class="fas fa-user-circle fa-2x"></i>
+                                    <h1 class="w3-xlarge w3-margin-top w3-margin-bottom">Human Resources</h1>
+                                </v-card-text>
+
+                                <v-card-actions>
+                                    <v-btn
+                                            href="/services/human-resources"
+                                            text>
+                                        Read more&nbsp;<i class="fas fa-angle-right"></i>
+                                    </v-btn>
+                                </v-card-actions>
+                                <br>
+                            </div>
+                        </v-card>
+                    </div>
+                
+                
+                    <div class="w3-center">
+                        <v-btn x-large rounded outlined>More Services</v-btn>
+                    </div>
+                
+            </div>
+        </div>
+    </section>
+    <img src="/static/images/svg/bottom.svg" alt=""
+         style="width: 100%;margin-left: auto;margin-right: auto;margin-top: -15px">
+    <section class="hero is-small w3-padding-48" style="">
+        <div class="hero-body container">
+            <div class="columns is-mobile is-multiline">
+                <div class="column is-12">
+                    <h1 class="w3-xxlarge w3-center">Insights</h1>
+                </div>
+                
+                <div class="column is-12 w3-center w3-hide">
+                    <v-btn x-large rounded outlined>
+                        See all insights&nbsp;<i class="fas fa-angle-right"></i>
+
+                    </v-btn>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <img class="w3-hide" src="/static/images/svg/topRed.svg" alt="" style="margin-bottom: -15px;width: 100%">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3875.324557090543!2d-0.1841226816907117!3d5.59893244059772!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xba97f593c0664741!2sStanbic%20Bank%20-%20Heights%20Branch!5e0!3m2!1sen!2sgh!4v1585839676240!5m2!1sen!2sgh"
+                width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
+        <footer class="w3-black w3-padding-large w3-padding-64">
+            <div style="max-width: 1680px;margin: auto" class="w3-container">
+                <div class="columns is-multiline">
+                    <div class="column">
+                        <div class="columns">
+                            <div class="w3-margin-right w3-padding-8">
+                                <a href="/"
+                                   class="is-uppercase w3-text-white w3-border-bottom">
+                                    Home
+                                </a>
+                            </div>
+                            <div class="w3-margin-right w3-padding-8">
+                                <a href="/about"
+                                   class="is-uppercase w3-text-white w3-border-bottom">
+                                    About
+                                </a>
+                            </div>
+                            <div class="w3-margin-right w3-padding-8">
+                                <a href="/about"
+                                   class="is-uppercase w3-text-white w3-border-bottom">
+                                    Testimonials
+                                </a>
+                            </div>
+                            <div class="w3-margin-right w3-padding-8">
+                                <a href="/contact"
+                                   class="is-uppercase w3-text-white w3-border-bottom">
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                        <h1 class="w3-xlarge">We're social</h1>
+                        <br>
+                        <div class="level is-mobile">
+                            <div class="level-left">
+                                <v-btn fab class="level-item"
+                                       href="https://www.linkedin.com/company/oxford-consultants-ghana/">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </v-btn>
+                                <v-btn fab class="level-item" href="https://www.instagram.com/oxfordconsultantsgh/">
+                                    <i class="fab fa-instagram"></i>
+                                </v-btn>
+                                <v-btn fab class="level-item"
+                                       href="https://www.facebook.com/Oxford-Consultants-101163331576991/">
+                                    <i class="fab fa-facebook"></i>
+                                </v-btn>
+                                <v-btn fab class="level-item w3-hide">
+                                    <i class="fab fa-youtube"></i>
+                                </v-btn>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <br>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="level-left">
+                    <div class="level-item">
+                        <a href="" class="w3-text-white w3-border-bottom">Privacy Policy</a>
+                    </div>
+                    <div class="level-item"><a href="" class="w3-text-white w3-border-bottom">Sitemap</a></div>
+                </div>
+                <div class="level-right w3-center">
+                    <div class="level-item"><a href="" class="w3-text-white">© 2020 - 2024 Oxford
+                        Consultants. All Rights
+                        Reserved.</a></div>
+                </div>
+            </div>
+        </footer>
+    </v-app>
+
+</div>
+
+<script src="/static/js/script.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+
+<script>
+    let vueApp = new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+        delimiters: ['[[', ']]'],
+        data() {
+            return {
+                drawer: false,
+                languages: ['English', 'French'],
+                showProfileDialog: false,
+                profile: null,
+                items: [
+                    {
+                        src: '/static/images/banner-image-1.jpg',
+                    },
+                    {
+                        src: '/static/images/banner-image-2.jpg',
+                    },
+                    {
+                        src: '/static/images/banner-image-3.jpg',
+                    },
+                ],
+            };
+        },
+        watch: {},
+        mounted: function () {
+            setTimeout(() => {
+                $('#app').removeClass('w3-hide');
+            }, 100);
+            setTimeout(() => {
+                $('#loading').addClass('w3-hide')
+            }, 200);
+        },
+        methods: {
+            goTo(url) {
+                window.location.href = url;
+            },
+            showProfile(name) {
+                this.showProfileDialog = true
+                this.profile = name
+            }
+        }
+    });
+    $('select#language-select option[value="en"]').attr("selected", window.location.href.includes('/en/'));
+    $('select#language-select option[value="fr"]').attr("selected", window.location.href.includes('/fr/'));
+
+    $(function () {
+
+        // bind change event to select
+        $('#language-select').on('change', function () {
+            var language = $(this).val();
+            if (language) {
+                let url = window.location.href;
+                let currentLanguage;
+                language === 'en' ? currentLanguage = 'fr' : currentLanguage = 'en';
+                window.location = url.replace(currentLanguage, language);
+            }
+            return false;
+        });
+    });
+</script>
+</body>
+</html>
