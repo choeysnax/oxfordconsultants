@@ -1,0 +1,1277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+    NSIA 2023 Annual General Meeting
+ &bull; Oxford Consultants</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.2.17/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/w3.css">
+    <link rel="stylesheet" href="/static/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="/static/images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/static/images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/static/images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/static/images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/static/images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/static/images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/static/images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/static/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="/static/images/icons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        @font-face {
+            font-family: 'Circular-Book';
+            src: url('/static/fonts/Circular/CircularStd-Book.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'CooperPenny';
+            src: url('/static/fonts/CooperPenny/copper penny dtp.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Circular-Black';
+            src: url('/static/fonts/Circular/CircularStd-Black.ttf') format('truetype');
+        }
+
+        *, div, body, p {
+            font-family: "Circular-Book", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        !important;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4, h5, h6, strong {
+            font-family: CooperPenny, "Circular-Black", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        !important;
+        }
+
+        .dl {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            display: inline-block;
+        }
+
+        .dl__square {
+            display: block;
+            width: 150px;
+            height: 150px;
+            margin: auto;
+        }
+
+        .bgoverlay {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+    </style>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero.is-black {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('/static/images/nsia-ghana-building.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        
+        .steps .step-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        
+        .steps .step-marker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: #006400; /* NSIA Ghana brand color */
+            color: white;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .steps .step-content {
+            flex-grow: 1;
+            border-left: 2px solid #dbdbdb;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .tabcontent {
+            animation: fadeEffect 0.5s;
+            display: none; /* Ensure tabs are hidden by default */
+        }
+        
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        
+        .download-btn {
+            transition: transform 0.2s;
+        }
+        
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .tabs.is-boxed li.is-active a {
+            background-color: #fff;
+            border-color: #dbdbdb;
+            border-bottom-color: transparent !important;
+            color: #006400; /* NSIA Ghana brand color */
+        }
+        
+        .section-container {
+            min-height: 400px;
+        }
+        
+        /* Improved responsive countdown timer */
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem auto;
+            gap: 10px;
+            max-width: 100%;
+            padding: 0 10px;
+        }
+        
+        .countdown-timer .timer-box {
+            background: #f5f5f5;
+            border-radius: 5px;
+            padding: 0.8rem;
+            min-width: 70px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .countdown-timer .timer-box .timer-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #006400; /* NSIA Ghana brand color */
+            line-height: 1.2;
+        }
+        
+        .countdown-timer .timer-box .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #666;
+            line-height: 1.2;
+        }
+        
+        /* Mobile-specific styles */
+        @media screen and (max-width: 768px) {
+            .countdown-timer {
+                margin: 1.5rem auto;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                max-width: 400px;
+                padding: 0 5px;
+                gap: 5px;
+            }
+            
+            .countdown-timer .timer-box {
+                padding: 0.5rem 0.3rem;
+                min-width: auto;
+                flex: 1;
+                margin: 0;
+                box-shadow: none;
+                border: 1px solid rgba(0,0,0,0.1);
+            }
+            
+            .countdown-timer .timer-box .timer-value {
+                font-size: 1.2rem;
+                line-height: 1.2;
+            }
+            
+            .countdown-timer .timer-box .label {
+                font-size: 0.6rem;
+                line-height: 1;
+            }
+            
+            .hero-body {
+                padding: 2rem 1rem !important;
+            }
+            
+            .w3-xxlarge {
+                font-size: 1.8rem !important;
+            }
+            
+            .w3-xlarge {
+                font-size: 1.2rem !important;
+            }
+            
+            .button.is-medium {
+                font-size: 0.9rem;
+                height: 2.5rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Fix for horizontal scrolling in mobile tab content */
+            .mobile-tab-content {
+                width: 100%;
+                overflow-x: hidden;
+                word-wrap: break-word;
+                box-sizing: border-box;
+            }
+            
+            /* Ensure text wrapping for long URLs */
+            .mobile-tab-content a {
+                word-break: break-all;
+                display: inline-block;
+                max-width: 100%;
+            }
+            
+            /* Handle tables in mobile view */
+            .mobile-tab-content table {
+                width: 100%;
+                max-width: 100%;
+                display: block;
+                overflow-x: auto;
+            }
+            
+            /* Fix for content containers */
+            .w3-content {
+                width: 100%;
+                max-width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+                box-sizing: border-box;
+            }
+            
+            /* Better spacing for mobile tab items */
+            .panel-title {
+                padding: 0.8rem;
+            }
+            
+            /* Ensure proper spacing in mobile tab content */
+            .mobile-tab-content p, 
+            .mobile-tab-content div,
+            .mobile-tab-content h1,
+            .mobile-tab-content h2,
+            .mobile-tab-content h3 {
+                max-width: 100%;
+            }
+        }
+        
+        /* Small mobile devices */
+        @media screen and (max-width: 480px) {
+            .countdown-timer {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                margin: 1rem auto;
+                padding: 0;
+                max-width: 320px;
+                gap: 4px;
+            }
+            
+            .countdown-timer .timer-box {
+                padding: 0.4rem 0.2rem;
+                min-width: 0;
+                flex: 1;
+                margin: 0;
+                border-radius: 4px;
+            }
+            
+            .countdown-timer .timer-box .timer-value {
+                font-size: 1.1rem;
+                margin-bottom: 2px;
+            }
+            
+            .countdown-timer .timer-box .label {
+                font-size: 0.55rem;
+                line-height: 1;
+            }
+            
+            .w3-xxlarge {
+                font-size: 1.5rem !important;
+            }
+            
+            .w3-xlarge {
+                font-size: 1rem !important;
+                line-height: 1.5;
+                margin-bottom: 1rem;
+            }
+            
+            .buttons.is-centered {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .buttons.is-centered .button {
+                margin: 0.3rem 0;
+                width: 100%;
+            }
+            
+            /* Enhanced mobile tab content styles for very small screens */
+            .mobile-content-wrapper {
+                width: 100%;
+                overflow-x: hidden;
+                padding: 0;
+            }
+            
+            /* Make step markers smaller on very small screens */
+            .steps .step-marker {
+                width: 2rem;
+                height: 2rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Adjust step content for better mobile display */
+            .steps .step-content {
+                padding-left: 1rem;
+            }
+            
+            /* Ensure notification boxes are properly contained */
+            .notification {
+                padding: 0.75rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            /* Fix for tables in small mobile screens */
+            table {
+                font-size: 0.8rem;
+            }
+            
+            /* Fix for any elements causing overflow */
+            img, iframe, object, embed, video {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        
+        /* Updated brand colors */
+        .button.is-primary {
+            background-color: #006400; /* NSIA Ghana brand color */
+        }
+        .button.is-primary:hover {
+            background-color: #005000;
+        }
+        .notification.is-info {
+            background-color: #e6f7e6;
+            color: #006400;
+        }
+        
+        /* Mobile tab improvements */
+        .mobile-tab-header {
+            cursor: pointer;
+        }
+        
+        .mobile-tab-content {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+        
+        .mobile-content-wrapper {
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        
+        .panel-title {
+            padding: 1rem;
+            background-color: #f5f5f5;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .panel-title .icon:first-child {
+            margin-right: 0.5rem;
+            color: #006400;
+        }
+        
+        .panel-title .title-text {
+            flex-grow: 1;
+            margin: 0 0.5rem;
+        }
+        
+        .panel-title .fa-chevron-down,
+        .panel-title .fa-chevron-up {
+            transition: transform 0.3s ease;
+        }
+        
+        .panel-title.active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+    </style>
+
+</head>
+<body style="width: 100%">
+
+<div class="dl" id="loading">
+    <div class="dl__square w3-animate-right w3-animate-zoo">
+        <img src="/static/images/svg/oc.svg" alt="">
+    </div>
+</div>
+<div id="app" class="w3-hide w3-animate-opacity trans-400">
+    <v-app>
+        
+        <v-toolbar flat>
+            <v-app-bar-nav-icon @click.stop="drawer = !drawer"
+                                class="w3-hide-medium w3-hide-large w3-hide"></v-app-bar-nav-icon>
+            <a href="/">
+                <v-toolbar-title>
+                    <div class="level is-mobile ">
+                        <div class="level-item" style="margin-right: 0.1rem">
+                            <img src="/static/images/svg/oc.svg" alt="" style="height: 30px">
+                        </div>
+                        <div class="level-item">
+                            <h6 class="w3-text-black" style="margin-top: 5px"
+                                class="w3-large">Oxford Consultants</h6>
+                        </div>
+                    </div>
+                </v-toolbar-title>
+            </a>
+            <v-spacer></v-spacer>
+            <div class="w3-hide-small w3-hide-medium">
+                <v-btn text href="/" class="w3-hide-small">
+    Home
+</v-btn>
+<v-btn text href="/about">
+    About
+</v-btn>
+<v-btn text href="/testimonials">
+    Testimonials
+</v-btn>
+<v-btn text href="https://forms.gle/UkWDDHkcuz6xGci89" target="_blank">
+    Contact
+</v-btn>
+<v-btn text href="https://rhemalawgh.com/" target="_blank" rel="nofollow noreferrer" outlined
+       class="w3-border w3-border-black">
+    Rhema Law &nbsp;<v-icon small>mdi-launch</v-icon>
+</v-btn>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </v-toolbar>
+        <div class="w3-hide-large w3-border-top w3-border-black w3-padding-8 w3-container">
+            <div class="w3-center w3-content" style="overflow-x: auto;white-space: nowrap">
+                <v-btn text href="/" class="w3-hide-small">
+    Home
+</v-btn>
+<v-btn text href="/about">
+    About
+</v-btn>
+<v-btn text href="/testimonials">
+    Testimonials
+</v-btn>
+<v-btn text href="https://forms.gle/UkWDDHkcuz6xGci89" target="_blank">
+    Contact
+</v-btn>
+<v-btn text href="https://rhemalawgh.com/" target="_blank" rel="nofollow noreferrer" outlined
+       class="w3-border w3-border-black">
+    Rhema Law &nbsp;<v-icon small>mdi-launch</v-icon>
+</v-btn>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        <div class="w3-topbar w3-border-red" style="width: 100%"></div>
+        
+    <!-- Hero Section -->
+    <div class="hero is-medium is-black">
+        <div class="hero-body w3-container w3-center w3-content">
+            <div class="w3-text-white">
+                <h1 class="w3-xxlarge w3-text-white has-text-weight-bold">
+                    NSIA 2023 Annual General Meeting
+                </h1>
+                <div class="w3-xlarge w3-margin-top">
+                    Join us for the 46th AGM of NSIA Insurance Company LTD to be held on Tuesday, 6th May 2025 at 0900h GMT via Zoom.
+                </div>
+                
+                <!-- Countdown Timer -->
+                <div class="countdown-timer">
+                    <div class="timer-box">
+                        <div class="timer-value" id="days">00</div>
+                        <div class="label">Days</div>
+                    </div>
+                    <div class="timer-box">
+                        <div class="timer-value" id="hours">00</div>
+                        <div class="label">Hours</div>
+                    </div>
+                    <div class="timer-box">
+                        <div class="timer-value" id="minutes">00</div>
+                        <div class="label">Minutes</div>
+                    </div>
+                    <div class="timer-box">
+                        <div class="timer-value" id="seconds">00</div>
+                        <div class="label">Seconds</div>
+                    </div>
+                </div>
+                
+                <div class="buttons is-centered w3-margin-top">
+                    <a href="#section-body-registration" onclick="switchTab('registration')" class="button is-primary is-medium">
+                        <span class="icon"><i class="fas fa-user-plus"></i></span>
+                        <span>Register Now</span>
+                    </a>
+                    <a href="#section-body-proxy-form" onclick="switchTab('proxy-form')" class="button is-light is-medium">
+                        <span class="icon"><i class="fas fa-file-word"></i></span>
+                        <span>Download Proxy Form</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="w3-content">
+        <section class="w3-padding-64 w3-padding">
+            <!-- Desktop View -->
+            <div class="w3-hide-small">
+                <div class="tabs is-boxed is-medium is-marginless">
+                    <ul class="is-paddingless">
+                        
+                            <li id="section-tab-overview"
+                                class="tablinks is-active">
+                                <a onclick="switchTab('overview')">
+                                    <span class="icon">
+                                        
+                                            <i class="fas fa-info-circle"></i>
+                                        
+                                    </span>
+                                    <strong>Overview &amp; Agenda</strong>
+                                </a>
+                            </li>
+                        
+                            <li id="section-tab-registration"
+                                class="tablinks ">
+                                <a onclick="switchTab('registration')">
+                                    <span class="icon">
+                                        
+                                            <i class="fas fa-user-plus"></i>
+                                        
+                                    </span>
+                                    <strong>Registration</strong>
+                                </a>
+                            </li>
+                        
+                            <li id="section-tab-proxy-form"
+                                class="tablinks ">
+                                <a onclick="switchTab('proxy-form')">
+                                    <span class="icon">
+                                        
+                                            <i class="fas fa-user-check"></i>
+                                        
+                                    </span>
+                                    <strong>Proxy Form</strong>
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </div>
+                
+                    <div id="section-body-overview"
+                         class="tabcontent w3-padding-large w3-border-bottom w3-border-left w3-border-right section-container active-tab">
+                        
+                <div class="content">
+                    <h3>Notice of Annual General Meeting</h3>
+                    <p>Notice is hereby given that the 46th Annual General Meeting of NSIA INSURANCE COMPANY LIMITED (the "Company") will be held on Tuesday, 6th May, 2025 at 0900h GMT by Zoom to transact the following business:</p>
+
+                    <div class="notification is-info is-light">
+                        <p><strong>Date:</strong> Tuesday, 6th May 2025</p>
+                        <p><strong>Time:</strong> 09:00 AM GMT</p>
+                        <p><strong>Venue:</strong> Virtual Meeting via Zoom</p>
+                        <p><strong>Link:</strong> <a href="https://us02web.zoom.us/meeting/register/YRkseKZzTUyGqZdGD4SaNQ" target="_blank" class="is-link">
+                            <span class="icon"><i class="fas fa-link"></i></span>
+                            <span>Click here to register. The Zoom link will be sent to your email after registration</span>
+                        </a></p>
+                    </div>
+
+                    <h3>Agenda</h3>
+                    <ol>
+                        <li>To waive the notice period required for this meeting;</li>
+                        <li>To receive and consider the Accounts and Reports of the directors and auditors for the year ended 31st December, 2023;</li>
+                        <li>To receive the directors' statement on dividend for the year ended 31st December, 2023;</li>
+                        <li>To authorize the directors to fix the remuneration of the auditors;</li>
+                        <li>To ratify the appointment of Mrs. Monica Amissah as a director of the company, subject to the approval of the National Insurance Commission.</li>
+                        <li>To ratify the remuneration of the non-executive directors.</li>
+                        <li>To approve the payment of end-of-service benefits to the non-executive directors.</li>
+                        <li>To transact any other business appropriate to be dealt with at an Annual General Meeting.</li>
+                    </ol>
+
+                    <div class="notification is-warning is-light mt-4">
+                        <p><strong>Note:</strong> A member of the company entitled to attend and vote is entitled to appoint a proxy to attend and vote in his/her stead. A proxy need not be a shareholder. A proxy form is available in the registration link that has been provided. It must be completed and submitted online by close of business on 2nd May 2025.</p>
+                    </div>
+
+                    <p class="has-text-right">Dated at Accra this 3rd day of April 2025<br>By order of the Board<br><strong>Company Secretary</strong></p>
+                </div>
+                
+                        
+                    </div>
+                
+                    <div id="section-body-registration"
+                         class="tabcontent w3-padding-large w3-border-bottom w3-border-left w3-border-right section-container ">
+                        
+                <div class="content">
+                    <h3>Registration Information</h3>
+                    <p>All shareholders interested in attending the NSIA 46th Annual General Meeting must complete the registration process.</p>
+
+                    <div class="steps">
+                        <div class="step-item">
+                            <div class="step-marker">1</div>
+                            <div class="step-content">
+                                <p>Visit the official Zoom registration portal at <a href="https://us02web.zoom.us/meeting/register/YRkseKZzTUyGqZdGD4SaNQ" target="_blank">https://us02web.zoom.us/meeting/register/YRkseKZzTUyGqZdGD4SaNQ</a></p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-marker">2</div>
+                            <div class="step-content">
+                                <p>Complete the registration form with accurate contact information</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-marker">3</div>
+                            <div class="step-content">
+                                <p>Submit your registration and await confirmation email with unique Zoom access credentials</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification is-info is-light mt-4">
+                        <p><strong>Note:</strong> Upon successful registration, you will receive access to the audited financial statements and the CV of Mrs. Monica Amissah.</p>
+                    </div>
+                </div>
+                
+                        
+                    </div>
+                
+                    <div id="section-body-proxy-form"
+                         class="tabcontent w3-padding-large w3-border-bottom w3-border-left w3-border-right section-container ">
+                        
+                <div class="content">
+                    <h3>Proxy Appointment</h3>
+                    <p>Shareholders who cannot attend the AGM may appoint a proxy to attend and vote on their behalf. A proxy need not be a shareholder of the Company.</p>
+
+                    <div class="box">
+                        <h4>Proxy Submission Guidelines</h4>
+                        <ol>
+                            <li>Download the proxy form available below</li>
+                            <li>Complete all required fields with accurate information</li>
+                            <li>Submit the completed form via email to: <a href="mailto:akuaa@oxfordconsultantsgh.com">akuaa@oxfordconsultantsgh.com</a></li>
+                            <li>Ensure your submission is received no later than close of business on 2nd May 2025</li>
+                        </ol>
+                    </div>
+
+                    <p>Upon successful submission, both the shareholder and appointed proxy will receive confirmation emails with relevant details.</p>
+                </div>
+                
+                        
+                            <div class="box has-background-light">
+                                <table class="table is-fullwidth">
+                                    <thead>
+                                    <tr>
+                                        <th>Document</th>
+                                        <th>Description</th>
+                                        <th class="w3-right-align">Download</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td style="margin: auto">
+                                            <div class="w3-large">
+                                                <span class="icon is-medium">
+                                                    <i class="fas fa-file-word has-text-primary"></i>
+                                                </span>
+                                                Proxy Form
+                                            </div>
+                                        </td>
+                                        <td>
+                                            
+                                                Official proxy appointment form for the NSIA Insurance Limited Ghana 2023 AGM
+                                            
+                                        </td>
+                                        <td class="w3-right-align">
+                                            <a class="button is-primary is-rounded download-btn" href="/static/docs/nsia-2023-agm-proxy-form-electronic.docx" download>
+                                                <span class="icon">
+                                                    <i class="fas fa-download"></i>
+                                                </span>
+                                                <span>Download</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        
+                    </div>
+                
+            </div>
+            
+            <!-- Mobile View -->
+            <div class="w3-hide-medium w3-hide-large">
+                <div class="mobile-tabs">
+                    
+                        <div class="mobile-tab">
+                            <div id="mobile-tab-header-overview" class="mobile-tab-header" onclick="toggleMobileTab('mobile-tab-content-overview', this)">
+                                <div class="panel-title">
+                                    <span class="icon">
+                                        
+                                            <i class="fas fa-info-circle"></i>
+                                        
+                                    </span>
+                                    <span class="title-text"><strong>Overview &amp; Agenda</strong></span>
+                                    <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                                </div>
+                            </div>
+                            <div id="mobile-tab-content-overview" class="mobile-tab-content" style="display: none;">
+                                <div class="mobile-content-wrapper">
+                                    
+                <div class="content">
+                    <h3>Notice of Annual General Meeting</h3>
+                    <p>Notice is hereby given that the 46th Annual General Meeting of NSIA INSURANCE COMPANY LIMITED (the "Company") will be held on Tuesday, 6th May, 2025 at 0900h GMT by Zoom to transact the following business:</p>
+
+                    <div class="notification is-info is-light">
+                        <p><strong>Date:</strong> Tuesday, 6th May 2025</p>
+                        <p><strong>Time:</strong> 09:00 AM GMT</p>
+                        <p><strong>Venue:</strong> Virtual Meeting via Zoom</p>
+                        <p><strong>Link:</strong> <a href="https://us02web.zoom.us/meeting/register/YRkseKZzTUyGqZdGD4SaNQ" target="_blank" class="is-link">
+                            <span class="icon"><i class="fas fa-link"></i></span>
+                            <span>Click here to register. The Zoom link will be sent to your email after registration</span>
+                        </a></p>
+                    </div>
+
+                    <h3>Agenda</h3>
+                    <ol>
+                        <li>To waive the notice period required for this meeting;</li>
+                        <li>To receive and consider the Accounts and Reports of the directors and auditors for the year ended 31st December, 2023;</li>
+                        <li>To receive the directors' statement on dividend for the year ended 31st December, 2023;</li>
+                        <li>To authorize the directors to fix the remuneration of the auditors;</li>
+                        <li>To ratify the appointment of Mrs. Monica Amissah as a director of the company, subject to the approval of the National Insurance Commission.</li>
+                        <li>To ratify the remuneration of the non-executive directors.</li>
+                        <li>To approve the payment of end-of-service benefits to the non-executive directors.</li>
+                        <li>To transact any other business appropriate to be dealt with at an Annual General Meeting.</li>
+                    </ol>
+
+                    <div class="notification is-warning is-light mt-4">
+                        <p><strong>Note:</strong> A member of the company entitled to attend and vote is entitled to appoint a proxy to attend and vote in his/her stead. A proxy need not be a shareholder. A proxy form is available in the registration link that has been provided. It must be completed and submitted online by close of business on 2nd May 2025.</p>
+                    </div>
+
+                    <p class="has-text-right">Dated at Accra this 3rd day of April 2025<br>By order of the Board<br><strong>Company Secretary</strong></p>
+                </div>
+                
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="mobile-tab">
+                            <div id="mobile-tab-header-registration" class="mobile-tab-header" onclick="toggleMobileTab('mobile-tab-content-registration', this)">
+                                <div class="panel-title">
+                                    <span class="icon">
+                                        
+                                            <i class="fas fa-user-plus"></i>
+                                        
+                                    </span>
+                                    <span class="title-text"><strong>Registration</strong></span>
+                                    <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                                </div>
+                            </div>
+                            <div id="mobile-tab-content-registration" class="mobile-tab-content" style="display: none;">
+                                <div class="mobile-content-wrapper">
+                                    
+                <div class="content">
+                    <h3>Registration Information</h3>
+                    <p>All shareholders interested in attending the NSIA 46th Annual General Meeting must complete the registration process.</p>
+
+                    <div class="steps">
+                        <div class="step-item">
+                            <div class="step-marker">1</div>
+                            <div class="step-content">
+                                <p>Visit the official Zoom registration portal at <a href="https://us02web.zoom.us/meeting/register/YRkseKZzTUyGqZdGD4SaNQ" target="_blank">https://us02web.zoom.us/meeting/register/YRkseKZzTUyGqZdGD4SaNQ</a></p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-marker">2</div>
+                            <div class="step-content">
+                                <p>Complete the registration form with accurate contact information</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-marker">3</div>
+                            <div class="step-content">
+                                <p>Submit your registration and await confirmation email with unique Zoom access credentials</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification is-info is-light mt-4">
+                        <p><strong>Note:</strong> Upon successful registration, you will receive access to the audited financial statements and the CV of Mrs. Monica Amissah.</p>
+                    </div>
+                </div>
+                
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="mobile-tab">
+                            <div id="mobile-tab-header-proxy-form" class="mobile-tab-header" onclick="toggleMobileTab('mobile-tab-content-proxy-form', this)">
+                                <div class="panel-title">
+                                    <span class="icon">
+                                        
+                                            <i class="fas fa-user-check"></i>
+                                        
+                                    </span>
+                                    <span class="title-text"><strong>Proxy Form</strong></span>
+                                    <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                                </div>
+                            </div>
+                            <div id="mobile-tab-content-proxy-form" class="mobile-tab-content" style="display: none;">
+                                <div class="mobile-content-wrapper">
+                                    
+                <div class="content">
+                    <h3>Proxy Appointment</h3>
+                    <p>Shareholders who cannot attend the AGM may appoint a proxy to attend and vote on their behalf. A proxy need not be a shareholder of the Company.</p>
+
+                    <div class="box">
+                        <h4>Proxy Submission Guidelines</h4>
+                        <ol>
+                            <li>Download the proxy form available below</li>
+                            <li>Complete all required fields with accurate information</li>
+                            <li>Submit the completed form via email to: <a href="mailto:akuaa@oxfordconsultantsgh.com">akuaa@oxfordconsultantsgh.com</a></li>
+                            <li>Ensure your submission is received no later than close of business on 2nd May 2025</li>
+                        </ol>
+                    </div>
+
+                    <p>Upon successful submission, both the shareholder and appointed proxy will receive confirmation emails with relevant details.</p>
+                </div>
+                
+                                    
+                                        <div class="box has-background-light">
+                                            <div class="has-text-centered">
+                                                <p class="is-size-5 mb-3">
+                                                    <span class="icon is-medium">
+                                                        <i class="fas fa-file-word has-text-primary"></i>
+                                                    </span>
+                                                    Proxy Form
+                                                </p>
+                                                <p class="mb-4">
+                                                    
+                                                        Official proxy appointment form for the NSIA Insurance Limited Ghana 2023 AGM
+                                                    
+                                                </p>
+                                                <a class="button is-primary is-fullwidth download-btn" href="/static/docs/nsia-2023-agm-proxy-form-electronic.docx" download>
+                                                    <span class="icon">
+                                                        <i class="fas fa-download"></i>
+                                                    </span>
+                                                    <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </section>
+    </div>
+    
+
+        <img class="w3-hide" src="/static/images/svg/topRed.svg" alt="" style="margin-bottom: -15px;width: 100%">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3875.324557090543!2d-0.1841226816907117!3d5.59893244059772!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xba97f593c0664741!2sStanbic%20Bank%20-%20Heights%20Branch!5e0!3m2!1sen!2sgh!4v1585839676240!5m2!1sen!2sgh"
+                width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
+        <footer class="w3-black w3-padding-large w3-padding-64">
+            <div style="max-width: 1680px;margin: auto" class="w3-container">
+                <div class="columns is-multiline">
+                    <div class="column">
+                        <div class="columns">
+                            <div class="w3-margin-right w3-padding-8">
+                                <a href="/"
+                                   class="is-uppercase w3-text-white w3-border-bottom">
+                                    Home
+                                </a>
+                            </div>
+                            <div class="w3-margin-right w3-padding-8">
+                                <a href="/about"
+                                   class="is-uppercase w3-text-white w3-border-bottom">
+                                    About
+                                </a>
+                            </div>
+                            <div class="w3-margin-right w3-padding-8">
+                                <a href="/about"
+                                   class="is-uppercase w3-text-white w3-border-bottom">
+                                    Testimonials
+                                </a>
+                            </div>
+                            <div class="w3-margin-right w3-padding-8">
+                                <a href="https://forms.gle/UkWDDHkcuz6xGci89"
+                                   class="is-uppercase w3-text-white w3-border-bottom">
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                        <h1 class="w3-xlarge">We're social</h1>
+                        <br>
+                        <div class="level is-mobile">
+                            <div class="level-left">
+                                <v-btn fab class="level-item"
+                                       href="https://www.linkedin.com/company/oxford-consultants-ghana/">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </v-btn>
+                                <v-btn fab class="level-item" href="https://www.instagram.com/oxfordconsultantsgh/">
+                                    <i class="fab fa-instagram"></i>
+                                </v-btn>
+                                <v-btn fab class="level-item"
+                                       href="https://www.facebook.com/Oxford-Consultants-101163331576991/">
+                                    <i class="fab fa-facebook"></i>
+                                </v-btn>
+                                <v-btn fab class="level-item w3-hide">
+                                    <i class="fab fa-youtube"></i>
+                                </v-btn>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <br>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="level-left">
+                    <div class="level-item">
+                        <a href="" class="w3-text-white w3-border-bottom">Privacy Policy</a>
+                    </div>
+                    <div class="level-item"><a href="" class="w3-text-white w3-border-bottom">Sitemap</a></div>
+                </div>
+                <div class="level-right w3-center">
+                    <div class="level-item"><a href="" class="w3-text-white">© 2020 - 2025 Oxford
+                        Consultants. All Rights
+                        Reserved.</a></div>
+                </div>
+            </div>
+        </footer>
+    </v-app>
+
+</div>
+
+<script src="/static/js/script.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+    <script>
+        function switchTab(id) {
+            // Check if we're on mobile or desktop view
+            const isMobile = window.matchMedia("(max-width: 768px)").matches;
+            
+            if (isMobile) {
+                // Handle mobile tab switching
+                const mobileTabContent = document.getElementById(`mobile-tab-content-${id}`);
+                const mobileTabHeader = document.querySelector(`.mobile-tab-header[onclick*="${id}"]`);
+                
+                if (mobileTabContent && mobileTabHeader) {
+                    // Close all other tabs first
+                    const allMobileContents = document.getElementsByClassName("mobile-tab-content");
+                    const allPanelTitles = document.getElementsByClassName("panel-title");
+                    
+                    for (let i = 0; i < allMobileContents.length; i++) {
+                        allMobileContents[i].style.display = "none";
+                    }
+                    
+                    for (let i = 0; i < allPanelTitles.length; i++) {
+                        allPanelTitles[i].classList.remove("active");
+                    }
+                    
+                    // Open the selected tab
+                    mobileTabContent.style.display = "block";
+                    mobileTabHeader.querySelector(".panel-title").classList.add("active");
+                    
+                    // Scroll to the tab
+                    mobileTabContent.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            } else {
+                // Handle desktop tab switching
+                let tabcontent = document.getElementsByClassName("tabcontent");
+                for (let i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+
+                let tablinks = document.getElementsByClassName("tablinks");
+                for (let i = 0; i < tablinks.length; i++) {
+                    try {
+                        tablinks[i].classList.remove('is-active');
+                    } catch (e) {
+                        // Handle error silently
+                    }
+                }
+                
+                try {
+                    document.getElementById(`section-tab-${id}`).classList.add('is-active');
+                    document.getElementById(`section-body-${id}`).style.display = 'block';
+                    
+                    // Smooth scroll to section
+                    document.getElementById(`section-body-${id}`).scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                } catch (e) {
+                    console.error("Error switching tab:", e);
+                }
+            }
+        }
+        
+        function toggleMobileTab(contentId, clickedElement) {
+            const content = document.getElementById(contentId);
+            const allContents = document.getElementsByClassName("mobile-tab-content");
+            const allPanelTitles = document.getElementsByClassName("panel-title");
+            
+            // First close all other tabs
+            for (let i = 0; i < allContents.length; i++) {
+                if (allContents[i].id !== contentId) {
+                    allContents[i].style.display = "none";
+                }
+            }
+            
+            // Remove active class from all panel titles
+            for (let i = 0; i < allPanelTitles.length; i++) {
+                allPanelTitles[i].classList.remove("active");
+            }
+            
+            // Toggle the clicked tab
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                clickedElement.querySelector(".panel-title").classList.remove("active");
+            } else {
+                content.style.display = "block";
+                clickedElement.querySelector(".panel-title").classList.add("active");
+                
+                // Smooth scroll to the opened tab
+                content.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Initialize the countdown timer
+        const countdownDate = new Date("May 6, 2025 09:00:00").getTime();;
+        
+        // Fix any potential overflow issues on page load
+        window.addEventListener('load', function() {
+            // Force width recalculation
+            document.querySelectorAll('.mobile-tab-content').forEach(el => {
+                el.style.width = '100%';
+                el.style.maxWidth = '100%';
+                el.style.overflowX = 'hidden';
+            });
+            
+            // Fix any long URLs or text
+            document.querySelectorAll('.mobile-tab-content a, .mobile-tab-content p').forEach(el => {
+                el.style.wordBreak = 'break-word';
+                el.style.maxWidth = '100%';
+            });
+        });
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the result
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+            
+            // If the countdown is finished, display message
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }
+        
+        // Update the countdown every 1 second
+        updateCountdown();
+        const x = setInterval(updateCountdown, 1000);
+
+        // Initialize tabs and handle URL hash for direct links
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if we have a hash in the URL (for direct links to tabs)
+            let targetTabId = null;
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                // Extract tab id from hash like "section-body-registration"
+                const match = hash.match(/section-body-(.*)/);
+                if (match && match[1]) {
+                    targetTabId = match[1];
+                }
+            }
+            
+            // If we have a target tab from URL hash, switch to it
+            if (targetTabId) {
+                switchTab(targetTabId);
+            } else {
+                // Otherwise show first tab as default
+                const firstTabContent = document.querySelector('.tabcontent.active-tab');
+                if (firstTabContent) {
+                    firstTabContent.style.display = 'block';
+                } else {
+                    // Fallback to the first section if class approach doesn't work
+                    const firstSection = 'overview';
+                    if (firstSection) {
+                        switchTab(firstSection);
+                    }
+                }
+                
+                // For mobile view, open the first tab by default
+                const firstMobileTab = document.querySelector('.mobile-tab-content');
+                if (firstMobileTab) {
+                    firstMobileTab.style.display = 'block';
+                    const firstMobileTabHeader = firstMobileTab.previousElementSibling.querySelector('.panel-title');
+                    if (firstMobileTabHeader) {
+                        firstMobileTabHeader.classList.add('active');
+                    }
+                }
+            }
+            
+            // Add event listeners to hero buttons to ensure they work on mobile
+            document.querySelectorAll('.hero-body .button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#section-body-')) {
+                        const tabId = href.replace('#section-body-', '');
+                        switchTab(tabId);
+                    }
+                });
+            });
+        });
+    </script>
+
+<script>
+    let vueApp = new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+        delimiters: ['[[', ']]'],
+        data() {
+            return {
+                drawer: false,
+                languages: ['English', 'French'],
+                showProfileDialog: false,
+                profile: null,
+                items: [
+                    {
+                        src: '/static/images/banner-image-1.jpg',
+                    },
+                    {
+                        src: '/static/images/banner-image-2.jpg',
+                    },
+                    {
+                        src: '/static/images/banner-image-3.jpg',
+                    },
+                ],
+            };
+        },
+        watch: {},
+        mounted: function () {
+            setTimeout(() => {
+                $('#app').removeClass('w3-hide');
+            }, 100);
+            setTimeout(() => {
+                $('#loading').addClass('w3-hide')
+            }, 200);
+        },
+        methods: {
+            goTo(url) {
+                window.location.href = url;
+            },
+            showProfile(name) {
+                this.showProfileDialog = true
+                this.profile = name
+            }
+        }
+    });
+    $('select#language-select option[value="en"]').attr("selected", window.location.href.includes('/en/'));
+    $('select#language-select option[value="fr"]').attr("selected", window.location.href.includes('/fr/'));
+
+    $(function () {
+
+        // bind change event to select
+        $('#language-select').on('change', function () {
+            var language = $(this).val();
+            if (language) {
+                let url = window.location.href;
+                let currentLanguage;
+                language === 'en' ? currentLanguage = 'fr' : currentLanguage = 'en';
+                window.location = url.replace(currentLanguage, language);
+            }
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

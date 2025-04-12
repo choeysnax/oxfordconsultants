@@ -1,0 +1,741 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ page.title }}
+{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero.is-black {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('{% static "images/nsia-ghana-building.jpg" %}') no-repeat center center;
+            background-size: cover;
+        }
+        
+        .steps .step-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        
+        .steps .step-marker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: #006400; /* NSIA Ghana brand color */
+            color: white;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .steps .step-content {
+            flex-grow: 1;
+            border-left: 2px solid #dbdbdb;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .tabcontent {
+            animation: fadeEffect 0.5s;
+            display: none; /* Ensure tabs are hidden by default */
+        }
+        
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        
+        .download-btn {
+            transition: transform 0.2s;
+        }
+        
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .tabs.is-boxed li.is-active a {
+            background-color: #fff;
+            border-color: #dbdbdb;
+            border-bottom-color: transparent !important;
+            color: #006400; /* NSIA Ghana brand color */
+        }
+        
+        .section-container {
+            min-height: 400px;
+        }
+        
+        /* Improved responsive countdown timer */
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem auto;
+            gap: 10px;
+            max-width: 100%;
+            padding: 0 10px;
+        }
+        
+        .countdown-timer .timer-box {
+            background: #f5f5f5;
+            border-radius: 5px;
+            padding: 0.8rem;
+            min-width: 70px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .countdown-timer .timer-box .timer-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #006400; /* NSIA Ghana brand color */
+            line-height: 1.2;
+        }
+        
+        .countdown-timer .timer-box .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #666;
+            line-height: 1.2;
+        }
+        
+        /* Mobile-specific styles */
+        @media screen and (max-width: 768px) {
+            .countdown-timer {
+                margin: 1.5rem auto;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                max-width: 400px;
+                padding: 0 5px;
+                gap: 5px;
+            }
+            
+            .countdown-timer .timer-box {
+                padding: 0.5rem 0.3rem;
+                min-width: auto;
+                flex: 1;
+                margin: 0;
+                box-shadow: none;
+                border: 1px solid rgba(0,0,0,0.1);
+            }
+            
+            .countdown-timer .timer-box .timer-value {
+                font-size: 1.2rem;
+                line-height: 1.2;
+            }
+            
+            .countdown-timer .timer-box .label {
+                font-size: 0.6rem;
+                line-height: 1;
+            }
+            
+            .hero-body {
+                padding: 2rem 1rem !important;
+            }
+            
+            .w3-xxlarge {
+                font-size: 1.8rem !important;
+            }
+            
+            .w3-xlarge {
+                font-size: 1.2rem !important;
+            }
+            
+            .button.is-medium {
+                font-size: 0.9rem;
+                height: 2.5rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Fix for horizontal scrolling in mobile tab content */
+            .mobile-tab-content {
+                width: 100%;
+                overflow-x: hidden;
+                word-wrap: break-word;
+                box-sizing: border-box;
+            }
+            
+            /* Ensure text wrapping for long URLs */
+            .mobile-tab-content a {
+                word-break: break-all;
+                display: inline-block;
+                max-width: 100%;
+            }
+            
+            /* Handle tables in mobile view */
+            .mobile-tab-content table {
+                width: 100%;
+                max-width: 100%;
+                display: block;
+                overflow-x: auto;
+            }
+            
+            /* Fix for content containers */
+            .w3-content {
+                width: 100%;
+                max-width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+                box-sizing: border-box;
+            }
+            
+            /* Better spacing for mobile tab items */
+            .panel-title {
+                padding: 0.8rem;
+            }
+            
+            /* Ensure proper spacing in mobile tab content */
+            .mobile-tab-content p, 
+            .mobile-tab-content div,
+            .mobile-tab-content h1,
+            .mobile-tab-content h2,
+            .mobile-tab-content h3 {
+                max-width: 100%;
+            }
+        }
+        
+        /* Small mobile devices */
+        @media screen and (max-width: 480px) {
+            .countdown-timer {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                margin: 1rem auto;
+                padding: 0;
+                max-width: 320px;
+                gap: 4px;
+            }
+            
+            .countdown-timer .timer-box {
+                padding: 0.4rem 0.2rem;
+                min-width: 0;
+                flex: 1;
+                margin: 0;
+                border-radius: 4px;
+            }
+            
+            .countdown-timer .timer-box .timer-value {
+                font-size: 1.1rem;
+                margin-bottom: 2px;
+            }
+            
+            .countdown-timer .timer-box .label {
+                font-size: 0.55rem;
+                line-height: 1;
+            }
+            
+            .w3-xxlarge {
+                font-size: 1.5rem !important;
+            }
+            
+            .w3-xlarge {
+                font-size: 1rem !important;
+                line-height: 1.5;
+                margin-bottom: 1rem;
+            }
+            
+            .buttons.is-centered {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .buttons.is-centered .button {
+                margin: 0.3rem 0;
+                width: 100%;
+            }
+            
+            /* Enhanced mobile tab content styles for very small screens */
+            .mobile-content-wrapper {
+                width: 100%;
+                overflow-x: hidden;
+                padding: 0;
+            }
+            
+            /* Make step markers smaller on very small screens */
+            .steps .step-marker {
+                width: 2rem;
+                height: 2rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Adjust step content for better mobile display */
+            .steps .step-content {
+                padding-left: 1rem;
+            }
+            
+            /* Ensure notification boxes are properly contained */
+            .notification {
+                padding: 0.75rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            /* Fix for tables in small mobile screens */
+            table {
+                font-size: 0.8rem;
+            }
+            
+            /* Fix for any elements causing overflow */
+            img, iframe, object, embed, video {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        
+        /* Updated brand colors */
+        .button.is-primary {
+            background-color: #006400; /* NSIA Ghana brand color */
+        }
+        .button.is-primary:hover {
+            background-color: #005000;
+        }
+        .notification.is-info {
+            background-color: #e6f7e6;
+            color: #006400;
+        }
+        
+        /* Mobile tab improvements */
+        .mobile-tab-header {
+            cursor: pointer;
+        }
+        
+        .mobile-tab-content {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+        
+        .mobile-content-wrapper {
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        
+        .panel-title {
+            padding: 1rem;
+            background-color: #f5f5f5;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .panel-title .icon:first-child {
+            margin-right: 0.5rem;
+            color: #006400;
+        }
+        
+        .panel-title .title-text {
+            flex-grow: 1;
+            margin: 0 0.5rem;
+        }
+        
+        .panel-title .fa-chevron-down,
+        .panel-title .fa-chevron-up {
+            transition: transform 0.3s ease;
+        }
+        
+        .panel-title.active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <div class="hero is-medium is-black">
+        <div class="hero-body w3-container w3-center w3-content">
+            <div class="w3-text-white">
+                <h1 class="w3-xxlarge w3-text-white has-text-weight-bold">
+                    {{ page.title }}
+                </h1>
+                <div class="w3-xlarge w3-margin-top">
+                    {{ page.description }}
+                </div>
+                
+                <!-- Countdown Timer -->
+                <div class="countdown-timer">
+                    <div class="timer-box">
+                        <div class="timer-value" id="days">00</div>
+                        <div class="label">Days</div>
+                    </div>
+                    <div class="timer-box">
+                        <div class="timer-value" id="hours">00</div>
+                        <div class="label">Hours</div>
+                    </div>
+                    <div class="timer-box">
+                        <div class="timer-value" id="minutes">00</div>
+                        <div class="label">Minutes</div>
+                    </div>
+                    <div class="timer-box">
+                        <div class="timer-value" id="seconds">00</div>
+                        <div class="label">Seconds</div>
+                    </div>
+                </div>
+                
+                <div class="buttons is-centered w3-margin-top">
+                    <a href="#section-body-registration" onclick="switchTab('registration')" class="button is-primary is-medium">
+                        <span class="icon"><i class="fas fa-user-plus"></i></span>
+                        <span>Register Now</span>
+                    </a>
+                    <a href="#section-body-proxy-form" onclick="switchTab('proxy-form')" class="button is-light is-medium">
+                        <span class="icon"><i class="fas fa-file-word"></i></span>
+                        <span>Download Proxy Form</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="w3-content">
+        <section class="w3-padding-64 w3-padding">
+            <!-- Desktop View -->
+            <div class="w3-hide-small">
+                <div class="tabs is-boxed is-medium is-marginless">
+                    <ul class="is-paddingless">
+                        {% for section in sections %}
+                            <li id="section-tab-{{ section.id }}"
+                                class="tablinks {% if forloop.first %}is-active{% endif %}">
+                                <a onclick="switchTab('{{ section.id }}')">
+                                    <span class="icon">
+                                        {% if section.id == 'overview' %}
+                                            <i class="fas fa-info-circle"></i>
+                                        {% elif section.id == 'registration' %}
+                                            <i class="fas fa-user-plus"></i>
+                                        {% elif section.id == 'proxy-form' %}
+                                            <i class="fas fa-user-check"></i>
+                                        {% else %}
+                                            <i class="fas fa-clipboard-list"></i>
+                                        {% endif %}
+                                    </span>
+                                    <strong>{{ section.title }}</strong>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% for section in sections %}
+                    <div id="section-body-{{ section.id }}"
+                         class="tabcontent w3-padding-large w3-border-bottom w3-border-left w3-border-right section-container {% if forloop.first %}active-tab{% endif %}">
+                        {{ section.body|safe }}
+                        {% if section.file %}
+                            <div class="box has-background-light">
+                                <table class="table is-fullwidth">
+                                    <thead>
+                                    <tr>
+                                        <th>Document</th>
+                                        <th>Description</th>
+                                        <th class="w3-right-align">Download</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td style="margin: auto">
+                                            <div class="w3-large">
+                                                <span class="icon is-medium">
+                                                    <i class="fas fa-file-word has-text-primary"></i>
+                                                </span>
+                                                {{ section.title }}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            {% if section.id == 'proxy-form' %}
+                                                Official proxy appointment form for the NSIA Insurance Limited Ghana 2023 AGM
+                                            {% else %}
+                                                Official document for the NSIA Insurance Limited Ghana 2023 AGM
+                                            {% endif %}
+                                        </td>
+                                        <td class="w3-right-align">
+                                            <a class="button is-primary is-rounded download-btn" href="{{ section.file.url }}" download>
+                                                <span class="icon">
+                                                    <i class="fas fa-download"></i>
+                                                </span>
+                                                <span>Download</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Mobile View -->
+            <div class="w3-hide-medium w3-hide-large">
+                <div class="mobile-tabs">
+                    {% for section in sections %}
+                        <div class="mobile-tab">
+                            <div id="mobile-tab-header-{{ section.id }}" class="mobile-tab-header" onclick="toggleMobileTab('mobile-tab-content-{{ section.id }}', this)">
+                                <div class="panel-title">
+                                    <span class="icon">
+                                        {% if section.id == 'overview' %}
+                                            <i class="fas fa-info-circle"></i>
+                                        {% elif section.id == 'registration' %}
+                                            <i class="fas fa-user-plus"></i>
+                                        {% elif section.id == 'proxy-form' %}
+                                            <i class="fas fa-user-check"></i>
+                                        {% else %}
+                                            <i class="fas fa-clipboard-list"></i>
+                                        {% endif %}
+                                    </span>
+                                    <span class="title-text"><strong>{{ section.title }}</strong></span>
+                                    <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                                </div>
+                            </div>
+                            <div id="mobile-tab-content-{{ section.id }}" class="mobile-tab-content" style="display: none;">
+                                <div class="mobile-content-wrapper">
+                                    {{ section.body|safe }}
+                                    {% if section.file %}
+                                        <div class="box has-background-light">
+                                            <div class="has-text-centered">
+                                                <p class="is-size-5 mb-3">
+                                                    <span class="icon is-medium">
+                                                        <i class="fas fa-file-word has-text-primary"></i>
+                                                    </span>
+                                                    {{ section.title }}
+                                                </p>
+                                                <p class="mb-4">
+                                                    {% if section.id == 'proxy-form' %}
+                                                        Official proxy appointment form for the NSIA Insurance Limited Ghana 2023 AGM
+                                                    {% else %}
+                                                        Official document for the NSIA Insurance Limited Ghana 2023 AGM
+                                                    {% endif %}
+                                                </p>
+                                                <a class="button is-primary is-fullwidth download-btn" href="{{ section.file.url }}" download>
+                                                    <span class="icon">
+                                                        <i class="fas fa-download"></i>
+                                                    </span>
+                                                    <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </div>
+    
+{% endblock %}
+
+{% block extra_body %}
+    <script>
+        function switchTab(id) {
+            // Check if we're on mobile or desktop view
+            const isMobile = window.matchMedia("(max-width: 768px)").matches;
+            
+            if (isMobile) {
+                // Handle mobile tab switching
+                const mobileTabContent = document.getElementById(`mobile-tab-content-${id}`);
+                const mobileTabHeader = document.querySelector(`.mobile-tab-header[onclick*="${id}"]`);
+                
+                if (mobileTabContent && mobileTabHeader) {
+                    // Close all other tabs first
+                    const allMobileContents = document.getElementsByClassName("mobile-tab-content");
+                    const allPanelTitles = document.getElementsByClassName("panel-title");
+                    
+                    for (let i = 0; i < allMobileContents.length; i++) {
+                        allMobileContents[i].style.display = "none";
+                    }
+                    
+                    for (let i = 0; i < allPanelTitles.length; i++) {
+                        allPanelTitles[i].classList.remove("active");
+                    }
+                    
+                    // Open the selected tab
+                    mobileTabContent.style.display = "block";
+                    mobileTabHeader.querySelector(".panel-title").classList.add("active");
+                    
+                    // Scroll to the tab
+                    mobileTabContent.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            } else {
+                // Handle desktop tab switching
+                let tabcontent = document.getElementsByClassName("tabcontent");
+                for (let i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+
+                let tablinks = document.getElementsByClassName("tablinks");
+                for (let i = 0; i < tablinks.length; i++) {
+                    try {
+                        tablinks[i].classList.remove('is-active');
+                    } catch (e) {
+                        // Handle error silently
+                    }
+                }
+                
+                try {
+                    document.getElementById(`section-tab-${id}`).classList.add('is-active');
+                    document.getElementById(`section-body-${id}`).style.display = 'block';
+                    
+                    // Smooth scroll to section
+                    document.getElementById(`section-body-${id}`).scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                } catch (e) {
+                    console.error("Error switching tab:", e);
+                }
+            }
+        }
+        
+        function toggleMobileTab(contentId, clickedElement) {
+            const content = document.getElementById(contentId);
+            const allContents = document.getElementsByClassName("mobile-tab-content");
+            const allPanelTitles = document.getElementsByClassName("panel-title");
+            
+            // First close all other tabs
+            for (let i = 0; i < allContents.length; i++) {
+                if (allContents[i].id !== contentId) {
+                    allContents[i].style.display = "none";
+                }
+            }
+            
+            // Remove active class from all panel titles
+            for (let i = 0; i < allPanelTitles.length; i++) {
+                allPanelTitles[i].classList.remove("active");
+            }
+            
+            // Toggle the clicked tab
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                clickedElement.querySelector(".panel-title").classList.remove("active");
+            } else {
+                content.style.display = "block";
+                clickedElement.querySelector(".panel-title").classList.add("active");
+                
+                // Smooth scroll to the opened tab
+                content.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Initialize the countdown timer
+        const countdownDate = new Date("May 6, 2025 09:00:00").getTime();;
+        
+        // Fix any potential overflow issues on page load
+        window.addEventListener('load', function() {
+            // Force width recalculation
+            document.querySelectorAll('.mobile-tab-content').forEach(el => {
+                el.style.width = '100%';
+                el.style.maxWidth = '100%';
+                el.style.overflowX = 'hidden';
+            });
+            
+            // Fix any long URLs or text
+            document.querySelectorAll('.mobile-tab-content a, .mobile-tab-content p').forEach(el => {
+                el.style.wordBreak = 'break-word';
+                el.style.maxWidth = '100%';
+            });
+        });
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the result
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+            
+            // If the countdown is finished, display message
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }
+        
+        // Update the countdown every 1 second
+        updateCountdown();
+        const x = setInterval(updateCountdown, 1000);
+
+        // Initialize tabs and handle URL hash for direct links
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if we have a hash in the URL (for direct links to tabs)
+            let targetTabId = null;
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                // Extract tab id from hash like "section-body-registration"
+                const match = hash.match(/section-body-(.*)/);
+                if (match && match[1]) {
+                    targetTabId = match[1];
+                }
+            }
+            
+            // If we have a target tab from URL hash, switch to it
+            if (targetTabId) {
+                switchTab(targetTabId);
+            } else {
+                // Otherwise show first tab as default
+                const firstTabContent = document.querySelector('.tabcontent.active-tab');
+                if (firstTabContent) {
+                    firstTabContent.style.display = 'block';
+                } else {
+                    // Fallback to the first section if class approach doesn't work
+                    const firstSection = '{{ first_section.id }}';
+                    if (firstSection) {
+                        switchTab(firstSection);
+                    }
+                }
+                
+                // For mobile view, open the first tab by default
+                const firstMobileTab = document.querySelector('.mobile-tab-content');
+                if (firstMobileTab) {
+                    firstMobileTab.style.display = 'block';
+                    const firstMobileTabHeader = firstMobileTab.previousElementSibling.querySelector('.panel-title');
+                    if (firstMobileTabHeader) {
+                        firstMobileTabHeader.classList.add('active');
+                    }
+                }
+            }
+            
+            // Add event listeners to hero buttons to ensure they work on mobile
+            document.querySelectorAll('.hero-body .button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#section-body-')) {
+                        const tabId = href.replace('#section-body-', '');
+                        switchTab(tabId);
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

@@ -29,16 +29,16 @@ urls_maps: list[UrlMap] = [{
     'name': 'testimonials',
     'distill_file': 'testimonials.html'
 }, {
-    'url': 'contact',
-    'view': views.contact_view,
-    'name': 'contact',
-    'distill_file': 'contact.html'
-}, {
     'url': 'services/<slug:slug>',
     'view': views.services_view,
     'name': 'services',
     'distill_file': 'services/{}.html',
     'distill_func': get_services_list,
+}, {
+    'url': 'nsia-2023-annual-general-meeting',
+    'view': views.nsia_2023_annual_general_meeting_view,
+    'name': 'nsia_2023_annual_general_meeting',
+    'distill_file': 'nsia-2023-annual-general-meeting.html',
 }]
 
 static_page_urlpatterns = []
